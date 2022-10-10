@@ -6,7 +6,7 @@ let dbConnect = mysql.createConnection({
     host: "localhost",
     user: "root",
     password: "",
-    database: "test_simple_crud"
+    database: ""
 });
 
 // Koneksi database
