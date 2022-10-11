@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 11, 2022 at 06:06 AM
+-- Generation Time: Oct 11, 2022 at 06:22 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -67,7 +67,9 @@ CREATE TABLE `tbl_mahasiswa` (
 CREATE TABLE `tbl_permohonan_keanggotaan` (
   `id_permohonan_keanggotaan` int(11) NOT NULL,
   `nama_permohonan_keanggotaan` varchar(40) NOT NULL,
-  `nim_mahasiswa` varchar(13) NOT NULL
+  `nim_permohonan_keanggotaan` varchar(13) NOT NULL,
+  `gender_permohonan_keanggotaan` enum('L','P') NOT NULL,
+  `pesan_permohonan_keanggotaan` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -117,8 +119,7 @@ ALTER TABLE `tbl_mahasiswa`
 -- Indexes for table `tbl_permohonan_keanggotaan`
 --
 ALTER TABLE `tbl_permohonan_keanggotaan`
-  ADD PRIMARY KEY (`id_permohonan_keanggotaan`),
-  ADD KEY `nim_mahasiswa` (`nim_mahasiswa`);
+  ADD PRIMARY KEY (`id_permohonan_keanggotaan`);
 
 --
 -- Indexes for table `tbl_semester`
