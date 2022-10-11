@@ -6,7 +6,7 @@ let dbConnect = mysql.createConnection({
     host: "localhost",
     user: "root",
     password: "",
-    database: ""
+    database: "db_spkm"
 });
 
 // Koneksi database
