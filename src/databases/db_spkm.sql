@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 11, 2022 at 06:22 AM
+-- Generation Time: Oct 11, 2022 at 06:52 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -72,6 +72,14 @@ CREATE TABLE `tbl_permohonan_keanggotaan` (
   `pesan_permohonan_keanggotaan` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `tbl_permohonan_keanggotaan`
+--
+
+INSERT INTO `tbl_permohonan_keanggotaan` (`id_permohonan_keanggotaan`, `nama_permohonan_keanggotaan`, `nim_permohonan_keanggotaan`, `gender_permohonan_keanggotaan`, `pesan_permohonan_keanggotaan`) VALUES
+(1, 'Much Darmawan Iriansyah Syam', '2022051074044', 'L', 'Tolong terima saya sebagai anggota mahasiswa SI'),
+(2, 'Putri Salsadila Syam', '202205107400', 'P', 'Tolong terima saya sebagai anggota mahasiswa SI');
+
 -- --------------------------------------------------------
 
 --
@@ -136,6 +144,12 @@ ALTER TABLE `tbl_semester`
 --
 ALTER TABLE `tbl_lvl_akun`
   MODIFY `id_lvl_akun` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `tbl_permohonan_keanggotaan`
+--
+ALTER TABLE `tbl_permohonan_keanggotaan`
+  MODIFY `id_permohonan_keanggotaan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `tbl_semester`
