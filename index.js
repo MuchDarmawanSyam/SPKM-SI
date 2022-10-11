@@ -12,3 +12,24 @@ app.use(express.urlencoded({ extended: true }))
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
+// Melampilkan data Pemohon keanggotaan
+app.get('/',(req, res) => {
+    let sql = "SELECT * FROM `tbl_permohonan_keanggotaan`";
+
+    dbMysql.query(sql, (error, results, fields) => {
+        if(error){
+            console.log(error);
+            return res.render('pages/index', {
+                error: true,
+                messages: "Terdapat masalah pada Koneksi NodeJS dengan MySQL..."
+            });
+        } else {
+            console.log(results);
+
+            return res.render('pages/index', {
+                error: true,
+                posts: results
+            });
+        }
+    });
+});
