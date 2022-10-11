@@ -9,6 +9,11 @@
 </head>
 <body>
     <h1>Tes tampilkan data</h1>
-
+    <% dataPemohon.forEach(function(data){ %>
+        <ul>
+            <li><%= data.nim_permohonan_keanggotaan %></li>
+            <li><%= data.nama_permohonan_keanggotaan %></li>
+        </ul>
+    <% }); %>
 </body>
 </html>
