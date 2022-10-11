@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 11, 2022 at 05:45 AM
+-- Generation Time: Oct 11, 2022 at 06:06 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -147,10 +147,11 @@ ALTER TABLE `tbl_semester`
 --
 
 --
--- Constraints for table `tbl_permohonan_keanggotaan`
+-- Constraints for table `tbl_mahasiswa`
 --
-ALTER TABLE `tbl_permohonan_keanggotaan`
-  ADD CONSTRAINT `tbl_permohonan_keanggotaan_ibfk_1` FOREIGN KEY (`nim_mahasiswa`) REFERENCES `tbl_mahasiswa` (`nim_mahasiswa`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `tbl_mahasiswa`
+  ADD CONSTRAINT `tbl_mahasiswa_ibfk_1` FOREIGN KEY (`id_lvl_akun`) REFERENCES `tbl_lvl_akun` (`id_lvl_akun`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `tbl_mahasiswa_ibfk_2` FOREIGN KEY (`id_semester`) REFERENCES `tbl_semester` (`id_semester`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
