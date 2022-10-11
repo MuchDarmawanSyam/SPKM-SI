@@ -28,8 +28,10 @@ app.get('/',(req, res) => {
 
             return res.render('pages/index', {
                 error: true,
-                posts: results
+                dataPemohon: results
             });
         }
     });
 });
+
+app.listen(3030, console.log("App Running on 3030..."));
