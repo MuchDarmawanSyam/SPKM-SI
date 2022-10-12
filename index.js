@@ -4,7 +4,7 @@ const dbMysql = require('./mysql');
 const app = express();
 const port = 3030;
 
-// Meggunakan Pengelolahan URL ExpressJS
+// Meggunakan Pengelolahan URL/Handler inputan ExpressJS
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
