@@ -1,5 +1,6 @@
 // Mengimpor Config Koneksi MySQL dan modul Express
 const express = require('express');
+const path = require('path');
 const dbMysql = require('./mysql');
 const app = express();
 const port = 3030;
@@ -9,7 +10,9 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
 // Set View dan Template Engine dan folder public
+app.set('views', path.join(__dirname,'views'));
 app.set('view engine', 'ejs');
+// Set libary ekternal
 app.use(express.static('public'));
 
 // Melampilkan data Pemohon keanggotaan
@@ -34,4 +37,4 @@ app.get('/',(req, res) => {
     });
 });
 
-app.listen(3030, console.log("App Running on 3030..."));
+app.listen(port, console.log("App Running on "+port));
