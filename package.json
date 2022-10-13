@@ -2,7 +2,7 @@
   "name": "crud-simple-mahasiswa",
   "version": "1.0.0",
   "description": "Belajar CRUD Mahasiswa dengan Framework ExpressJS dan MySQL",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
