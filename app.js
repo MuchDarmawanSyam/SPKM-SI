@@ -7,7 +7,8 @@ const flash = require('express-flash');
 const app = express();
 const port = 3030;
 
-// Mendefinisikan 
+// Mendefinisikan Router
+// const loginRoutes = require('src/routes/');
 
 // Meggunakan Pengelolahan URL/Handler inputan ExpressJS
 app.use(express.json())

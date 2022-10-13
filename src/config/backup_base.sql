@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 11, 2022 at 06:52 AM
+-- Generation Time: Oct 13, 2022 at 10:20 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -20,6 +20,20 @@ SET time_zone = "+00:00";
 --
 -- Database: `db_spkm`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_akun`
+--
+
+CREATE TABLE `tbl_akun` (
+  `id_akun` int(11) NOT NULL,
+  `nim_mahasiswa` varchar(13) NOT NULL,
+  `username_akun` varchar(18) NOT NULL,
+  `password_akun` varchar(40) NOT NULL,
+  `id_lvl_akun` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -110,6 +124,14 @@ INSERT INTO `tbl_semester` (`id_semester`, `ket_semester`) VALUES
 --
 
 --
+-- Indexes for table `tbl_akun`
+--
+ALTER TABLE `tbl_akun`
+  ADD PRIMARY KEY (`id_akun`),
+  ADD KEY `nim_mahasiswa` (`nim_mahasiswa`),
+  ADD KEY `id_lvl_akun` (`id_lvl_akun`);
+
+--
 -- Indexes for table `tbl_lvl_akun`
 --
 ALTER TABLE `tbl_lvl_akun`
@@ -138,6 +160,12 @@ ALTER TABLE `tbl_semester`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `tbl_akun`
+--
+ALTER TABLE `tbl_akun`
+  MODIFY `id_akun` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `tbl_lvl_akun`
