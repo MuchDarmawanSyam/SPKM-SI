@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 13, 2022 at 10:20 AM
+-- Generation Time: Oct 13, 2022 at 10:42 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -29,10 +29,10 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `tbl_akun` (
   `id_akun` int(11) NOT NULL,
-  `nim_mahasiswa` varchar(13) NOT NULL,
   `username_akun` varchar(18) NOT NULL,
   `password_akun` varchar(40) NOT NULL,
-  `id_lvl_akun` int(1) NOT NULL
+  `id_lvl_akun` int(1) NOT NULL,
+  `nim_mahasiswa` varchar(13) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -68,9 +68,15 @@ CREATE TABLE `tbl_mahasiswa` (
   `alamat_mahasiswa` varchar(60) NOT NULL,
   `no_telp_mahasiswa` varchar(13) NOT NULL,
   `kelas_mahasiswa` varchar(10) NOT NULL,
-  `id_semester` int(1) NOT NULL,
-  `id_lvl_akun` int(1) NOT NULL
+  `id_semester` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbl_mahasiswa`
+--
+
+INSERT INTO `tbl_mahasiswa` (`nim_mahasiswa`, `nama_mahasiswa`, `gender_mahasiswa`, `alamat_mahasiswa`, `no_telp_mahasiswa`, `kelas_mahasiswa`, `id_semester`) VALUES
+('admin1', 'Admin1', 'L', '', '', '', 1);
 
 -- --------------------------------------------------------
 
@@ -128,8 +134,8 @@ INSERT INTO `tbl_semester` (`id_semester`, `ket_semester`) VALUES
 --
 ALTER TABLE `tbl_akun`
   ADD PRIMARY KEY (`id_akun`),
-  ADD KEY `nim_mahasiswa` (`nim_mahasiswa`),
-  ADD KEY `id_lvl_akun` (`id_lvl_akun`);
+  ADD KEY `id_lvl_akun` (`id_lvl_akun`),
+  ADD KEY `nim_mahasiswa` (`nim_mahasiswa`);
 
 --
 -- Indexes for table `tbl_lvl_akun`
@@ -142,8 +148,7 @@ ALTER TABLE `tbl_lvl_akun`
 --
 ALTER TABLE `tbl_mahasiswa`
   ADD PRIMARY KEY (`nim_mahasiswa`),
-  ADD KEY `id_semester` (`id_semester`),
-  ADD KEY `id_lvl_akun` (`id_lvl_akun`);
+  ADD KEY `id_semester` (`id_semester`);
 
 --
 -- Indexes for table `tbl_permohonan_keanggotaan`
@@ -190,10 +195,16 @@ ALTER TABLE `tbl_semester`
 --
 
 --
+-- Constraints for table `tbl_akun`
+--
+ALTER TABLE `tbl_akun`
+  ADD CONSTRAINT `tbl_akun_ibfk_1` FOREIGN KEY (`id_lvl_akun`) REFERENCES `tbl_lvl_akun` (`id_lvl_akun`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `tbl_akun_ibfk_2` FOREIGN KEY (`nim_mahasiswa`) REFERENCES `tbl_mahasiswa` (`nim_mahasiswa`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
 -- Constraints for table `tbl_mahasiswa`
 --
 ALTER TABLE `tbl_mahasiswa`
-  ADD CONSTRAINT `tbl_mahasiswa_ibfk_1` FOREIGN KEY (`id_lvl_akun`) REFERENCES `tbl_lvl_akun` (`id_lvl_akun`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `tbl_mahasiswa_ibfk_2` FOREIGN KEY (`id_semester`) REFERENCES `tbl_semester` (`id_semester`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
