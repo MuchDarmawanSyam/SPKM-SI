@@ -1,7 +1,7 @@
 // Mengimpor Config Koneksi MySQL dan modul Express
 const express = require('express');
 const path = require('path');
-const dbMysql = require('./mysql');
+const dbMysql = require('./src/config/mysql');
 const app = express();
 const port = 3030;
 
@@ -9,13 +9,12 @@ const port = 3030;
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
-// Set View dan Template Engine dan folder public
+// Set View
 app.set('views', path.join(__dirname,'views'));
+// Set Template Engine
 app.set('view engine', 'ejs');
-// Set libary ekternal
+// Set folder libary ekternal / static
 app.use(express.static('public'));
-
-// Melampilkan data Pemohon keanggotaan
 
 
 // Ini untuk halaman Pengurus & Admin
