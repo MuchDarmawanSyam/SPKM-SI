@@ -17,6 +17,3 @@ dbConnect.connect((err) => {
 
 // Eksport modul Koneksi MySQL
 module.exports = dbConnect;
-// app.listen(3030, console.log(
-//     `App listening to port 3030, Running at: ${new Date().toISOString().replace('T', ' ').substring(0, 19)}`
-// ));
