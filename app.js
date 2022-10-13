@@ -1,9 +1,13 @@
-// Mengimpor Config Koneksi MySQL dan modul Express
+// Mendefinisikan Config Koneksi MySQL dan Modul yang digunakan
 const express = require('express');
 const path = require('path');
 const dbMysql = require('./src/config/mysql');
+const session = require('express-session');
+const flash = require('express-flash');
 const app = express();
 const port = 3030;
+
+// Mendefinisikan 
 
 // Meggunakan Pengelolahan URL/Handler inputan ExpressJS
 app.use(express.json())
