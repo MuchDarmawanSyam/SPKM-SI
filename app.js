@@ -24,14 +24,14 @@ app.use(express.static('public'));
 //     dbMysql.query(sql, (error, results, fields) => {
 //         if(error){
 //             console.log(error);
-//             return res.render('pages/index', {
+//             return res.render('mhs_pages/index', {
 //                 error: true,
 //                 messages: "Terdapat masalah pada Koneksi NodeJS dengan MySQL..."
 //             });
 //         } else {
 //             console.log(results);
 
-//             return res.render('pages/index', {
+//             return res.render('mhs_pages/index', {
 //                 error: true,
 //                 dataPemohon: results
 //             });
