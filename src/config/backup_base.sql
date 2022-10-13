@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 13, 2022 at 10:42 AM
+-- Generation Time: Oct 13, 2022 at 11:20 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -34,6 +34,15 @@ CREATE TABLE `tbl_akun` (
   `id_lvl_akun` int(1) NOT NULL,
   `nim_mahasiswa` varchar(13) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbl_akun`
+--
+
+INSERT INTO `tbl_akun` (`id_akun`, `username_akun`, `password_akun`, `id_lvl_akun`, `nim_mahasiswa`) VALUES
+(1, 'adminusr123', '12543c142270ae543d4cf6195fff645c9e63a6b5', 3, 'admin1'),
+(2, '2022051074042', 'f261c376a2a0437ab74dcb156d352887d9711110', 1, '2022051074042'),
+(3, '2022051074046', '62d8eb9f8f31b9b2e4a3fe179357e12fba6f4ab7', 1, '2022051074046');
 
 -- --------------------------------------------------------
 
@@ -76,6 +85,8 @@ CREATE TABLE `tbl_mahasiswa` (
 --
 
 INSERT INTO `tbl_mahasiswa` (`nim_mahasiswa`, `nama_mahasiswa`, `gender_mahasiswa`, `alamat_mahasiswa`, `no_telp_mahasiswa`, `kelas_mahasiswa`, `id_semester`) VALUES
+('2022051074042', 'Iriansyah Syam', 'L', 'Jalan. Tasangkapura No. 36', '082197829187', 'B', 1),
+('2022051074046', 'Salzadila Syam', 'P', 'Polimak 1 No. 40', '082197001122', 'B', 1),
 ('admin1', 'Admin1', 'L', '', '', '', 1);
 
 -- --------------------------------------------------------
@@ -170,7 +181,7 @@ ALTER TABLE `tbl_semester`
 -- AUTO_INCREMENT for table `tbl_akun`
 --
 ALTER TABLE `tbl_akun`
-  MODIFY `id_akun` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_akun` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tbl_lvl_akun`
