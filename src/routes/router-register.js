@@ -1,6 +1,7 @@
 // Definisikan Router dari Express
 const router = require('express').Router();
 // Ambil index.js dari Controller dan panggil variabel didalamnya
+// Tambahan .register diakhir untuk mengambil fungsi register
 const registerController = require('../controllers').register;
 // Definisikan Middleware
 const verifyUser = require('../config/middleware');
