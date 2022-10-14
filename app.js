@@ -1,4 +1,4 @@
-// Mendefinisikan Config Koneksi MySQL dan Modul yang digunakan
+//  ---------------- Mendefinisikan Config Koneksi MySQL dan Modul-Modul ----------------
 const express = require('express');
 const path = require('path');
 const dbMysql = require('./src/config/mysql');
@@ -6,20 +6,53 @@ const session = require('express-session');
 const flash = require('express-flash');
 const app = express();
 const port = 3030;
+// ---------------- END  ----------------
 
-// Mendefinisikan Router
-// const loginRoutes = require('src/routes/');
 
+// ---------------- Mendefinisikan Router  ----------------
+// Auth Routes
+const appRoutes = require('./src/routes/router-app');
+const loginRoutes = require('./src/routes/router-login');
+const registerRoutes = require('./src/routes/router-register');
+// ---------------- END  ----------------
+
+
+// ---------------- Penanganan URL, Session dan Flash Message ----------------
 // Meggunakan Pengelolahan URL/Handler inputan ExpressJS
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
-// Set View
+// Atur Konfigurasi Session
+app.use(session({
+    resave: false,
+    saveUninitialized: false,
+    secret: 'm@h@sisw@SI',
+    name: 'secretName',
+    cookie: {
+        sameSite: true,
+        maxAge: 60000
+    },
+}))
+app.use(flash());
+// ---------------- END ----------------
+
+
+// ---------------- Pengaturan Views dan Engine View ----------------
+// Atur View
 app.set('views', path.join(__dirname,'views'));
-// Set Template Engine
+// Atur Template Engine
 app.set('view engine', 'ejs');
-// Set folder libary ekternal / static
+// Atur folder library ekternal / static
 app.use(express.static('public'));
+// ---------------- END ----------------
+
+
+// ---------------- Gunakan Router yang telah didefinisikan ----------------
+// Auth Routes
+app.use('/login', loginRoutes);
+app.use('/register', registerRoutes);
+app.use('/', appRoutes);
+// ---------------- END ----------------
 
 
 // Ini untuk halaman Pengurus & Admin
