@@ -20,7 +20,7 @@ const registerRoutes = require('./src/routes/router-register');
 // ---------------- Penanganan URL, Session dan Flash Message ----------------
 // Meggunakan Pengelolahan URL/Handler inputan ExpressJS
 app.use(express.json())
-app.use(express.urlencoded({ extended: true }))
+app.use(express.urlencoded({ extended: false }))
 
 // Atur Konfigurasi Session
 app.use(session({
