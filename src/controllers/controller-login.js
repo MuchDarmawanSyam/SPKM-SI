@@ -58,7 +58,7 @@ module.exports = {
                         // Jika username & password yang diinput tdk ditemukan
                         req.flash('color', 'danger');
                         req.flash('status', 'Oops..');
-                        req.flash('message', 'Akun tidak terdaftar');
+                        req.flash('message', 'username atau password Salah');
                         res.redirect('/login');
                     }
                   });
