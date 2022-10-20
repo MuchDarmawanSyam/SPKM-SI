@@ -1,0 +1,33 @@
+Database: db_spkm
+
+Tables:
+    1. tbl_akun:
+        - id_akun (Primary/AI) / INT / 11
+        - username_akun / VARCHAR / 18
+        - password_akun / VARCHAR / 40
+        - id_lvl_akun (Foreign => tbl_lvl_akun) / INT / 1
+        - nim_mahasiswa (Foreign => tbl_mahasiswa) / VARCHAR / 13
+    
+    2. tbl_lvl_akun:
+        - id_lvl_akun (Primary/AI) / INT / 1
+        - ket_lvl_akun / VARCHAR / 10
+
+    3. tbl_mahasiswa:
+        - nim_mahasiswa (Primary) / VARCHAR / 13
+        - nama_mahasiswa / VARCHAR / 40
+        - gender_mahasiswa / ENUM / 'L','P'
+        - alamat_mahasiswa / VARCHAR / 60
+        - no_telp_mahasiswa / VARCHAR / 13
+        - kelas_mahasiswa / VARCHAR / 10
+        - id_semester (Foreign/AI) / INT / 1
+
+    4. tbl_semester;
+        - id_semester (Primary/AI) / INT / 1
+        - ket_semester / VARCHAR /10
+
+    5. tbl_permohonan_keanggotaan:
+        - id_permohonan_keanggotan (Primary/AI) / 11
+        - nama_permohonan_keanggotan / VARCHAR / 40
+        - nim_permohonan_keanggotan / VARCHAR / 13
+        - gender_permohonan_keanggotan / ENUM / 'L','P'
+        - pesan_permohonan_keanggotan / VARCHAR / 100

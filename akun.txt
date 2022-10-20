@@ -7,9 +7,9 @@ password = adminpass123
 Mahasiswa:
 nama = Iriansyah Syam
 username = 2022051074042 // pola: nim
-password = mhspass740429472 // pola: mhspass + 5 angka belakan nim + 4 angka random
+password = mhspass740429472 // pola: mhspass + 5 angka belakang nim + 4 angka random
 
 Mahasiswa 2:
 nama = Salzadila Syam
 username = 2022051074046 // pola: nim
-password = mhspass740461209 // pola: mhspass + 5 angka belakan nim + 4 angka random
+password = mhspass740461209 // pola: mhspass + 5 angka belakang nim + 4 angka random
