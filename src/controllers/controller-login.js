@@ -23,7 +23,7 @@ module.exports = {
         let password = req.body.password_akun;
         if (username && password){
             pool.getConnection(function(err, connection) {
-                if (error) throw error;
+                if (err) throw err;
                 connection.query(
                   "SELECT * FROM `tbl_akun` WHERE `username_akun` = ? AND `password_akun` = SHA1(?)", [username, password], function(error, results){
                     if(error) throw error;
