@@ -32,21 +32,21 @@ module.exports = {
                         if(results[0].id_lvl_akun == 3){
                             // Jika yang login seorang Admin
                             req.session.loggedin = true;
-                            req.session.nim = results[0].nim;
+                            req.session.nim = results[0].nim_mahasiswa;
                             req.session.statuslvlakun = "Admin";
                             res.redirect('/admin');
                         } else if (results[0].id_lvl_akun == 2){
                             // Jika yang login seorang Pengurus
                             req.session.loggedin = true;
-                            req.session.nim = results[0].nim;
+                            req.session.nim = results[0].nim_mahasiswa;
                             req.session.statuslvlakun = "Pengurus";
                             res.redirect('/mahasiswa');
                         } else if (results[0].id_lvl_akun == 1){
                             // Jika yang login seorang Mahasiswa
                             req.session.loggedin = true;
-                            req.session.nim = results[0].nim;
+                            req.session.nim = results[0].nim_mahasiswa;
                             req.session.statuslvlakun = "Mahasiswa";
-                            res.redirect('/mahasiswa');
+                            res.redirect('/');
                         }else{
                             // Jika login tapi tidak memiliki lvl terdaftar
                             req.flash('color', 'danger');
@@ -63,7 +63,7 @@ module.exports = {
                     }
                   });
 
-                connection.end();
+                connection.release();
             })
         } else {
             // Jika inputan tidak terisi
