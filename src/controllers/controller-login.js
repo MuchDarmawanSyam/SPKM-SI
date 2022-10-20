@@ -19,13 +19,13 @@ module.exports = {
     },
     // Fungsi Logiin | Kirim data yang diiput user dengan metode POST
     loginAuth(req, res){
-        let usrname = req.body.username;
-        let password = req.body.password;
-        if (usrname && password){
+        let username = req.body.username_akun;
+        let password = req.body.password_akun;
+        if (username && password){
             pool.getConnection(function(err, connection) {
                 if (error) throw error;
                 connection.query(
-                  "SELECT * FROM `tbl_akun` WHERE `username_akun` = ? AND `password_akun` = SHA1(?)", [usrname, password], function(error, results){
+                  "SELECT * FROM `tbl_akun` WHERE `username_akun` = ? AND `password_akun` = SHA1(?)", [username, password], function(error, results){
                     if(error) throw error;
                     if(results.length > 0){
                         // Jika username dan password yang diinput ditemukan
