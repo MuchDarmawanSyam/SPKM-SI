@@ -67,7 +67,6 @@ module.exports = {
             })
         } else {
             // Jika inputan tidak terisi
-            // Masalahnya disini
             req.flash('color', 'danger');
             req.flash('status', 'Oops..');
             req.flash('message', 'Username dan Password harus diisi.');
