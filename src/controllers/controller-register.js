@@ -38,7 +38,7 @@ module.exports = {
                         if (error) throw error;
                         req.flash('color', 'success');
                         req.flash('status', 'Yes..');
-                        req.flash('message', 'Permohonan berhasi terkirim.');
+                        req.flash('message', 'Permohonan berhasi terkirim. Pesan disetujui akan terkirim dalam 1x24 Jam.');
                         // Kembali ke halaman login
                         res.redirect('/login');
                     });
@@ -46,6 +46,9 @@ module.exports = {
                 connection.release();
             })
         } else {
+            req.flash('color', 'danger');
+            req.flash('status', 'Oops..');
+            req.flash('message', 'Pengajuan Permohonan Gagal. Hubungi Admin.');
             res.redirect('/login');
             res.end();
         }

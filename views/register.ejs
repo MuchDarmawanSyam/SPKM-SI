@@ -13,31 +13,29 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
 </head>
-<body style="padding: 0px !important;">
+<body style="padding: 20px !important;">
 	<div class="container h-100">
 		<div class="row h-100 justify-content-center align-items-center">
-			<form action="<%= url %>register/save" method="POST" class="col-md-4 card">
-				<h2>Form Registrasi Keanggotaan Mahasiswa SI</h2>
+			<form action="/register/save" method="POST" class="col-md-6 card">
+				<h2>Form Pengajuan Keanggotaan Mahasiswa SI</h2>
 				<div class="form-group">
 					<label>*Nama Lengkap:</label>
 					<input type="text" name="nama_permohonan_keanggotaan" class="form-control" placeholder="Masukan Nama Lengkap" required>
                 </div>
                 <div class="form-group">
 					<label>*Nomor Induk Mahasiswa (NIM):</label>
-					<input type="email" name="nim_permohonan_keanggotaan" class="form-control" placeholder="Masukan NIM" required>
+					<input type="text" name="nim_permohonan_keanggotaan" class="form-control" placeholder="Masukan NIM" required>
                 </div>
                 <div class="form-group">
 					<label>*Jenis kelamin:</label>
 					<select name="gender_permohonan_keanggotaan" class="form-control">
                         <option value="L" selected>Laki-Laki</option>
                         <option value="P">Perempuan</option>
-                    </select>>
+                    </select>
                 </div>
                 <div class="form-group">
 					<label>Pesan:</label>
-					<textarea name="pesan_permohonan_keanggotaan" class="form-control" cols="30" rows="10">
-                        Saya selaku mahasiswa prodi Sistem Informasi mengajukan permhononan keanggotaan. Terima Kasih.
-                    </textarea>
+					<textarea name="pesan_permohonan_keanggotaan" class="form-control" cols="30" rows="5"> Saya selaku mahasiswa prodi Sistem Informasi ingin mengajukan permohonan keanggotaan mahasiswa Uncen prodi Sistem Informasi. Terima Kasih.</textarea>
                 </div>                
                 <button type="submit" class="btn btn-primary">Ajukan Permohonan</button>
 			</form>

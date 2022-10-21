@@ -26,8 +26,8 @@ Tables:
         - ket_semester / VARCHAR /10
 
     5. tbl_permohonan_keanggotaan:
-        - id_permohonan_keanggotan (Primary/AI) / 11
-        - nama_permohonan_keanggotan / VARCHAR / 40
-        - nim_permohonan_keanggotan / VARCHAR / 13
-        - gender_permohonan_keanggotan / ENUM / 'L','P'
-        - pesan_permohonan_keanggotan / VARCHAR / 100
+        - id_permohonan_keanggotaan (Primary/AI) / 11
+        - nama_permohonan_keanggotaan / VARCHAR / 40
+        - nim_permohonan_keanggotaan / VARCHAR / 13
+        - gender_permohonan_keanggotaan / ENUM / 'L','P'
+        - pesan_permohonan_keanggotaan / VARCHAR / 100
