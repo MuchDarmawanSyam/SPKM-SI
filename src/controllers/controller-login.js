@@ -34,13 +34,13 @@ module.exports = {
                             req.session.loggedin = true;
                             req.session.nim = results[0].nim_mahasiswa;
                             req.session.statuslvlakun = "Admin";
-                            res.redirect('/admin');
+                            res.redirect('/');
                         } else if (results[0].id_lvl_akun == 2){
                             // Jika yang login seorang Pengurus
                             req.session.loggedin = true;
                             req.session.nim = results[0].nim_mahasiswa;
                             req.session.statuslvlakun = "Pengurus";
-                            res.redirect('/mahasiswa');
+                            res.redirect('/');
                         } else if (results[0].id_lvl_akun == 1){
                             // Jika yang login seorang Mahasiswa
                             req.session.loggedin = true;
