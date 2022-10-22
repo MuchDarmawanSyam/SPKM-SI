@@ -26,6 +26,7 @@ module.exports = {
         // Tampung inputan user keadalam variabel
         let namaPemohon = req.body.nama_permohonan_keanggotaan;
         let nimPemohon = req.body.nim_permohonan_keanggotaan;
+        let emailPemohon = req.body.email_permohonan_keanggotaan;
         let genderPemohon = req.body.gender_permohonan_keanggotaan;
         let pesanPemohon = req.body.pesan_permohonan_keanggotaan;
         // Pastikan semua variabel terisi
@@ -34,11 +35,11 @@ module.exports = {
             pool.getConnection(function(err, connection){
                 if(err) throw err;
                 connection.query(
-                    "INSERT INTO `tbl_permohonan_keanggotaan`(`id_permohonan_keanggotaan`, `nama_permohonan_keanggotaan`, `nim_permohonan_keanggotaan`, `gender_permohonan_keanggotaan`, `pesan_permohonan_keanggotaan`) VALUES (?,?,?,?,?)", ['', namaPemohon, nimPemohon, genderPemohon, pesanPemohon], function (error, results){
+                    "INSERT INTO `tbl_permohonan_keanggotaan`(`id_permohonan_keanggotaan`, `nama_permohonan_keanggotaan`, `nim_permohonan_keanggotaan`, `email_permohonan_keanggotaan`, `gender_permohonan_keanggotaan`, `pesan_permohonan_keanggotaan`) VALUES (?,?,?,?,?,?)", ['', namaPemohon, nimPemohon, emailPemohon, genderPemohon, pesanPemohon], function (error, results){
                         if (error) throw error;
                         req.flash('color', 'success');
                         req.flash('status', 'Yes..');
-                        req.flash('message', 'Permohonan berhasi terkirim. Pesan disetujui akan terkirim dalam 1x24 Jam.');
+                        req.flash('message', 'Permohonan berhasi terkirim. Pesan akan dibalas dalam 1x24 Jam.');
                         // Kembali ke halaman login
                         res.redirect('/login');
                     });

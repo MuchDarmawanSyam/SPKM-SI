@@ -30,7 +30,7 @@ app.use(session({
     name: 'secretName',
     cookie: {
         sameSite: true,
-        maxAge: 300000 // 300 Detik
+        maxAge: 600000 // 600 Detik / 10 Menit
     },
 }))
 app.use(flash());

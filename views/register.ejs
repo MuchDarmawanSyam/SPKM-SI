@@ -1,45 +1,114 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SPKM - Login</title>
-    <!-- CSS -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
-    <!-- JS -->
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
+  <title>Registrasi &mdash; SPKM SI</title>
 
-</head>
-<body style="padding: 20px !important;">
-	<div class="container h-100">
-		<div class="row h-100 justify-content-center align-items-center">
-			<form action="/register/save" method="POST" class="col-md-6 card">
-				<h2>Form Pengajuan Keanggotaan Mahasiswa SI</h2>
-				<div class="form-group">
-					<label>*Nama Lengkap:</label>
-					<input type="text" name="nama_permohonan_keanggotaan" class="form-control" placeholder="Masukan Nama Lengkap" required>
-                </div>
-                <div class="form-group">
-					<label>*Nomor Induk Mahasiswa (NIM):</label>
-					<input type="text" name="nim_permohonan_keanggotaan" class="form-control" placeholder="Masukan NIM" required>
-                </div>
-                <div class="form-group">
-					<label>*Jenis kelamin:</label>
-					<select name="gender_permohonan_keanggotaan" class="form-control">
-                        <option value="L" selected>Laki-Laki</option>
-                        <option value="P">Perempuan</option>
+  <!-- General CSS Files -->
+  <link rel="stylesheet" href="/modules/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/modules/fontawesome/css/all.min.css">
+
+  <!-- CSS Libraries -->
+  <link rel="stylesheet" href="/modules/jquery-selectric/selectric.css">
+
+  <!-- Template CSS -->
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/components.css">
+<!-- Start GA -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-94034622-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-94034622-3');
+</script>
+<!-- /END GA --></head>
+
+<body>
+  <div id="app">
+    <section class="section">
+      <div class="container mt-5">
+        <div class="row">
+          <div class="col-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-8 offset-lg-2 col-xl-8 offset-xl-2">
+            <div class="login-brand">
+              <img src="/img/stisla-fill.svg" alt="logo" width="100" class="shadow-light rounded-circle">
+            </div>
+
+            <div class="card card-primary">
+              <div class="card-header"><h4>Form Pendaftaran Keanggotaan Mahasiswa SI</h4></div>
+
+              <div class="card-body">
+                <form method="POST" action="/register/save">
+                  <div class="row">
+                    <div class="form-group col-6">
+                      <label for="nama_lengkap">Nama Lengkap</label>
+                      <input id="nama_lengkap" type="text" class="form-control" name="nama_permohonan_keanggotaan" placeholder="Masukan Nama Lengkap" required autofocus>
+                    </div>
+                    <div class="form-group col-6">
+                      <label for="nim">Nomor Induk Mahasiswa (NIM)</label>
+                      <input id="nim" type="text" class="form-control" name="nim_permohonan_keanggotaan" placeholder="Contoh: 2022051011233" required>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="email">Email</label>
+                    <input id="email" type="email" class="form-control" name="email_permohonan_keanggotaan" placeholder="Contoh: mhsuncen@gmail.com" required>
+                    <div class="invalid-feedback">
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label>Jenis kelamin</label>
+                    <select name="gender_permohonan_keanggotaan" class="form-control selectric">
+                      <option value="L" selected>Laki-Laki</option>
+                      <option value="P">Perempuan</option>
                     </select>
-                </div>
-                <div class="form-group">
+                  </div>
+
+                  <div class="form-group">
 					<label>Pesan:</label>
 					<textarea name="pesan_permohonan_keanggotaan" class="form-control" cols="30" rows="5"> Saya selaku mahasiswa prodi Sistem Informasi ingin mengajukan permohonan keanggotaan mahasiswa Uncen prodi Sistem Informasi. Terima Kasih.</textarea>
-                </div>                
-                <button type="submit" class="btn btn-primary">Ajukan Permohonan</button>
-			</form>
-		</div>  
-	</div>
+                    </div>
+                  <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-lg btn-block">
+                      Daftar
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div class="mt-5 text-muted text-center">
+                Sudah mempunyai Akun? <a href="/login">Login disini.</a>
+            </div>
+            <div class="simple-footer">
+               Copyright &copy; Much Darmawan Iriansyah Syam - 2022
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- General JS Scripts -->
+  <script src="/modules/jquery.min.js"></script>
+  <script src="/modules/popper.js"></script>
+  <script src="/modules/tooltip.js"></script>
+  <script src="/modules/bootstrap/js/bootstrap.min.js"></script>
+  <script src="/modules/nicescroll/jquery.nicescroll.min.js"></script>
+  <script src="/modules/moment.min.js"></script>
+  <script src="/js/stisla.js"></script>
+  
+  <!-- JS Libraies -->
+  <script src="/modules/jquery-pwstrength/jquery.pwstrength.min.js"></script>
+  <script src="/modules/jquery-selectric/jquery.selectric.min.js"></script>
+
+  <!-- Page Specific JS File -->
+  <script src="/js/page/auth-register.js"></script>
+  
+  <!-- Template JS File -->
+  <script src="/js/scripts.js"></script>
+  <script src="/js/custom.js"></script>
 </body>
 </html>

@@ -1,48 +1,114 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SPKM - Login</title>
-    <!-- CSS -->
-    <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css">
-	<link rel="stylesheet" href="/css/font-awesome/css/font-awesome.min.css">
-    <!-- JS -->
-    <script src="/js/jquery-3.6.1.min.js"></script>
-    <script src="/js/popper-1.16.0.min.js"></script>
-    <script src="/js/bootstrap-4.4.1/bootstrap.min.js"></script>
+  <meta charset="UTF-8">
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
+  <title>Login &mdash; SPKM</title>
 
-</head>
-<body style="padding: 50px !important;">
-	<div class="container h-100">
-		<div class="row h-100 justify-content-center align-items-center">
-			<form action="/login/auth" method="POST" class="col-md-5 card">
-				
-				<h2>Login</h2>
-				<div class="form-group">
-					<label>Username Akun:</label>
-					<input type="text" name="username_akun" class="form-control" placeholder="Masukan Username" required>
-				</div>
-				<div class="form-group">
-					<label>Password Akun:</label>
-					<input type="password" name="password_akun" class="form-control" placeholder="Masukan password" required>
-				</div>
+  <!-- General CSS Files -->
+  <link rel="stylesheet" href="/modules/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/modules/fontawesome/css/all.min.css">
 
-                <button type="submit" class="btn btn-primary mb-2 mt-3">Login</button>
-				<a href="/register" class="btn btn-success mb-2">Register</a>
-				
-				<%if (pesanFlash) { %>
-					<div class="alert alert-<%= colorFlash %> alert-dismissible fade show mt-3" role="alert">
-						<strong><%= statusFlash %></strong> 
-						<%= pesanFlash %>
-						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-						</button>
-					</div>
-				<% } %>
+  <!-- CSS Libraries -->
+  <link rel="stylesheet" href="/modules/bootstrap-social/bootstrap-social.css">
 
-			</form>
-		</div>  
-	</div>
+  <!-- Template CSS -->
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/components.css">
+<!-- Start GA -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-94034622-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-94034622-3');
+</script>
+<!-- /END GA --></head>
+
+<body>
+  <div id="app">
+    <section class="section">
+      <div class="container mt-5">
+        <div class="row">
+          <div class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
+            <div class="login-brand">
+              <img src="/img/stisla-fill.svg" alt="logo" width="100" class="shadow-light rounded-circle">
+            </div>
+
+            <div class="card card-primary">
+              <div class="card-header"><h4>Login</h4></div>
+
+              <div class="card-body">
+                <form method="POST" action="/login/auth" class="needs-validation" novalidate="">
+                  <div class="form-group">
+                    <label for="Username">Username</label>
+                    <input id="Username" type="text" class="form-control" name="username_akun" tabindex="1" required autofocus>
+                    <div class="invalid-feedback">
+                      silahkan isi Username
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <div class="d-block">
+                    	<label for="password" class="control-label">Password</label>
+                      <div class="float-right">
+                        <a href="#auth-forgot-password.html" class="text-small">
+                          Lupa Password?
+                        </a>
+                      </div>
+                    </div>
+                    <input id="password" type="password" class="form-control" name="password_akun" tabindex="2" required>
+                    <div class="invalid-feedback">
+						          silahkan isi password
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-lg btn-block" tabindex="4">
+                      Login
+                    </button>
+                  </div>
+                </form>
+
+                <%if (pesanFlash) { %>
+                <div class="alert alert-<%= colorFlash %> alert-dismissible fade show mt-3" role="alert">
+                  <strong><%= statusFlash %></strong> 
+                  <%= pesanFlash %>
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <% } %>
+              </div>
+            </div>
+            <div class="mt-5 text-muted text-center">
+              Belum mempunyai Akun? <a href="/register">Daftar disini.</a>
+            </div>
+            <div class="simple-footer">
+              Copyright &copy; Much Darmawan Iriansyah Syam - 2022
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- General JS Scripts -->
+  <script src="/modules/jquery.min.js"></script>
+  <script src="/modules/popper.js"></script>
+  <script src="/modules/tooltip.js"></script>
+  <script src="/modules/bootstrap/js/bootstrap.min.js"></script>
+  <script src="/modules/nicescroll/jquery.nicescroll.min.js"></script>
+  <script src="/modules/moment.min.js"></script>
+  <script src="/js/stisla.js"></script>
+  
+  <!-- JS Libraies -->
+
+  <!-- Page Specific JS File -->
+  
+  <!-- Template JS File -->
+  <script src="/js/scripts.js"></script>
+  <script src="/js/custom.js"></script>
 </body>
 </html>
