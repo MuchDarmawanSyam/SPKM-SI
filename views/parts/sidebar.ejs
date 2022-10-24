@@ -8,14 +8,14 @@
     <ul class="sidebar-menu">
       <li class="menu-header">Dashboard</li>
       <li class="dropdown <%= posisiHlmn[1] == 'Dashboard' ? 'active' : '' %>">
-        <a href="#" class="nav-link"><i class="fas fa-fire"></i><span>Dashboard</span></a>
+        <a href="/" class="nav-link"><i class="fas fa-fire"></i><span>Dashboard</span></a>
       </li>
       <li class="menu-header">Kelola Mahasiswa SI</li>
       <li class="dropdown <%= posisiHlmn[0] == 'Mahasiswa SI' ? 'active' : '' %>">
         <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i> <span>Mahasiswa SI</span></a>
         <ul class="dropdown-menu">
-          <li class="<%= posisiHlmn[1] == 'Data Mahasiswa SI' ? 'active' : '' %>"><a class="nav-link" href="/Admin/Mahasiswa">Data Mahasiswa SI</a></li>
-          <li><a class="nav-link" href="#layout-transparent.html">Data Akun Mahasiswa SI</a></li>
+          <li class="<%= posisiHlmn[1] == 'Data Mahasiswa SI' ? 'active' : '' %>"><a class="nav-link" href="/Admin/Mahasiswa">Data Anggota Mahasiswa</a></li>
+          <li class="<%= posisiHlmn[1] == 'Data Akun Mahasiswa SI' ? 'active' : '' %>"><a class="nav-link" href="/Admin/Akun-Mahasiswa">Data Akun Mahasiswa</a></li>
         </ul>
       </li>
       <li class="dropdown">
