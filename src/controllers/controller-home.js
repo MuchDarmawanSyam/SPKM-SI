@@ -5,13 +5,13 @@ module.exports = {
         let usrlvl = req.session.statuslvlakun;
         if(usrlvl == "Mahasiswa"){
             res.render("mhs_pages/index", {
-                url: 'http://localhost:3030/mhs_pages/',
+                posisiHlmn: '',
                 userNim:  req.session.nim,
                 userLvl: req.session.statuslvlakun,
             });
         }else if (usrlvl == "Admin"){
             res.render("admin_pages/index", {
-                url: 'http://localhost:3030/admin-pages/',
+                posisiHlmn: ['SPKM', 'Dashboard'],
                 userNim:  req.session.nim,
                 userLvl: req.session.statuslvlakun,
             });

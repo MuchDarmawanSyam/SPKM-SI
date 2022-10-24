@@ -1,69 +1,69 @@
 <aside id="sidebar-wrapper">
     <div class="sidebar-brand">
-      <a href="index.html">SPKM - SI</a>
+      <a href="/">SPKM - SI</a>
     </div>
     <div class="sidebar-brand sidebar-brand-sm">
-      <a href="index.html">SI</a>
+      <a href="/">SI</a>
     </div>
     <ul class="sidebar-menu">
       <li class="menu-header">Dashboard</li>
-      <li class="dropdown active">
+      <li class="dropdown <%= posisiHlmn[1] == 'Dashboard' ? 'active' : '' %>">
         <a href="#" class="nav-link"><i class="fas fa-fire"></i><span>Dashboard</span></a>
       </li>
       <li class="menu-header">Kelola Mahasiswa SI</li>
-      <li class="dropdown">
+      <li class="dropdown <%= posisiHlmn[0] == 'Mahasiswa SI' ? 'active' : '' %>">
         <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i> <span>Mahasiswa SI</span></a>
         <ul class="dropdown-menu">
-          <li><a class="nav-link" href="layout-default.html">Data Mahasiswa SI</a></li>
-          <li><a class="nav-link" href="layout-transparent.html">Data Akun Mahasiswa SI</a></li>
+          <li class="<%= posisiHlmn[1] == 'Data Mahasiswa SI' ? 'active' : '' %>"><a class="nav-link" href="/Admin/Mahasiswa">Data Mahasiswa SI</a></li>
+          <li><a class="nav-link" href="#layout-transparent.html">Data Akun Mahasiswa SI</a></li>
         </ul>
       </li>
       <li class="dropdown">
         <a href="#" class="nav-link has-dropdown"><i class="fas fa-th"></i> <span>Pengurus Kelas</span></a>
         <ul class="dropdown-menu">
-          <li><a class="nav-link" href="bootstrap-alert.html">Data Pengurus Kelas</a></li>
-          <li><a class="nav-link" href="bootstrap-badge.html">Data Akun Pengurus Kelas</a></li>
+          <li><a class="nav-link" href="#bootstrap-alert.html">Data Pengurus Kelas</a></li>
+          <li><a class="nav-link" href="#bootstrap-badge.html">Data Akun Pengurus Kelas</a></li>
         </ul>
       </li>
-      <li><a class="nav-link" href="blank.html"><i class="far fa-square"></i> <span>Ijin Keanggotaan</span></a></li>
+      <li><a class="nav-link" href="#blank.html"><i class="far fa-square"></i> <span>Ijin Keanggotaan</span></a></li>
       <li class="menu-header">Kelola Kelas SI</li>
       <li class="dropdown">
         <a href="#" class="nav-link has-dropdown"><i class="fas fa-th-large"></i> <span>Kelas SI</span></a>
         <ul class="dropdown-menu">
-          <li><a class="nav-link" href="components-article.html">Data Jadwal Kelas</a></li>
-          <li><a class="nav-link" href="components-chat-box.html">Data Info Kelas</a></li>
-          <li><a class="nav-link beep beep-sidebar" href="gmaps-geocoding.html">Data Kelas</a></li>
+          <li><a class="nav-link" href="#components-article.html">Data Jadwal Kelas</a></li>
+          <li><a class="nav-link" href="#components-chat-box.html">Data Info Kelas</a></li>
+          <li><a class="nav-link beep beep-sidebar" href="#gmaps-geocoding.html">Data Kelas</a></li>
         </ul>
       </li>
       <li class="dropdown">
         <a href="#" class="nav-link has-dropdown"><i class="fas fa-plug"></i> <span>Mata Kuliah SI</span></a>
         <ul class="dropdown-menu">
-          <li><a href="gmaps-advanced-route.html">Data Mata Kuliah</a></li>
-          <li><a href="gmaps-draggable-marker.html">Data Dosen Matkul</a></li>
+          <li><a href="#gmaps-advanced-route.html">Data Mata Kuliah</a></li>
+          <li><a href="#gmaps-draggable-marker.html">Data Dosen Matkul</a></li>
         </ul>
       </li>
       <li class="dropdown">
         <a href="#" class="nav-link has-dropdown"><i class="fas fa-bicycle"></i> <span>Tugas & Keputusan Kelas</span></a>
         <ul class="dropdown-menu">
-          <li><a class="nav-link" href="components-article.html">Data Tugas Kelas</a></li>
-          <li><a class="nav-link" href="components-chat-box.html">Data Pengumpulan Suara</a></li>
+          <li><a class="nav-link" href="#components-article.html">Data Tugas Kelas</a></li>
+          <li><a class="nav-link" href="#components-chat-box.html">Data Pengumpulan Suara</a></li>
         </ul>
       </li>
       <li class="menu-header">Sistem</li>
       <li class="dropdown">
         <a href="#" class="nav-link has-dropdown"><i class="far fa-user"></i> <span>Laporan</span></a>
         <ul class="dropdown-menu">
-          <li><a href="auth-forgot-password.html">Lap Data Mahasiswa</a></li> 
-          <li><a href="auth-login.html">Lap Data Kelas</a></li> 
-          <li><a href="auth-register.html">Lap Data Tugas Kelas</a></li> 
-          <li><a href="auth-reset-password.html">Lap Data Keputusan</a></li> 
+          <li><a href="#auth-forgot-password.html">Lap Data Mahasiswa</a></li> 
+          <li><a href="#auth-login.html">Lap Data Kelas</a></li> 
+          <li><a href="#auth-register.html">Lap Data Tugas Kelas</a></li> 
+          <li><a href="#auth-reset-password.html">Lap Data Keputusan</a></li> 
         </ul>
       </li>
       <li class="dropdown">
         <a href="#" class="nav-link has-dropdown"><i class="fas fa-ellipsis-h"></i> <span>Aplikasi SPKM</span></a>
         <ul class="dropdown-menu">
-          <li><a href="utilities-subscribe.html">Pengaturan Aplikasi</a></li>
-          <li><a href="utilities-contact.html">Backup & Reset</a></li>
+          <li><a href="#utilities-subscribe.html">Pengaturan Aplikasi</a></li>
+          <li><a href="#utilities-contact.html">Backup & Reset</a></li>
         </ul>
       </li>            
       <li><a class="nav-link" href="credits.html"><i class="fas fa-pencil-ruler"></i> <span>Tentang SPKM</span></a></li>

@@ -14,6 +14,8 @@ const port = 3030;
 const appRoutes = require('./src/routes/router-app');
 const loginRoutes = require('./src/routes/router-login');
 const registerRoutes = require('./src/routes/router-register');
+// Mahasiswa Routes
+const mhsRoutes = require('./src/routes/router-mahasiswa');
 // ---------------- END  ----------------
 
 
@@ -51,6 +53,10 @@ app.use(express.static('public'));
 // Auth Routes
 app.use('/login', loginRoutes);
 app.use('/register', registerRoutes);
+// Mahasiswa Routes
+app.use('/Admin/Mahasiswa', mhsRoutes);
+
+// Index Routes
 app.use('/', appRoutes);
 // ---------------- END ----------------
 
