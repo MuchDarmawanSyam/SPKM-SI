@@ -1,7 +1,6 @@
 //  ---------------- Mendefinisikan Config Koneksi MySQL dan Modul-Modul ----------------
 const express = require('express');
 const path = require('path');
-const dbMysql = require('./src/config/mysql');
 const session = require('express-session');
 const flash = require('express-flash');
 const app = express();
@@ -17,7 +16,8 @@ const registerRoutes = require('./src/routes/router-register');
 // Mahasiswa Routes
 const mhsRoutes = require('./src/routes/router-mahasiswa');
 const akunMhsRoutes = require('./src/routes/router-akun-mahasiswa');
-// Buat halaman Permohonan dan fungsi tampilkan data tabel tersebut
+// Permohonan Keanggotaan Routes
+const  permohonanRoutes = require('./src/routes/router-permohonan');
 // ---------------- END  ----------------
 
 
@@ -56,9 +56,10 @@ app.use(express.static('public'));
 app.use('/login', loginRoutes);
 app.use('/register', registerRoutes);
 // Mahasiswa Routes
-app.use('/Admin/Mahasiswa', mhsRoutes);
-app.use('/Admin/Akun-Mahasiswa', akunMhsRoutes);
-
+app.use('/admin/mahasiswa', mhsRoutes);
+app.use('/admin/akun-mahasiswa', akunMhsRoutes);
+// Permohonan Routes
+app.use('/admin/pengajuan', permohonanRoutes);
 // Index Routes
 app.use('/', appRoutes);
 // ---------------- END ----------------

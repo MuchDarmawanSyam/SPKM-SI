@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Header -->
+<%- include('../parts/header'); %>
+<!-- End Header -->
+<body>
+  <div id="app">
+    <div class="main-wrapper main-wrapper-1">
+      <div class="navbar-bg"></div>
+      <!-- Navbar -->
+        <%- include('../parts/navbar'); %>
+      <!-- End Navbar -->
+      <div class="main-sidebar sidebar-style-2">
+      <!-- Sidebar -->
+        <%- include('../parts/sidebar'); %>
+      <!-- End Sidebar -->
+      </div>
+
+      <!-- Main Content -->
+      <div class="main-content">
+        <section class="section">
+          <div class="section-header">
+            <h1><%= posisiHlmn[0] %> / <%= posisiHlmn[1] %></h1>
+          </div>
+          <!-- Table Mahasiswa and Quick Draft -->
+          <div class="row">
+            <!-- Table Mahasiswa -->
+            <div class="col-lg-12 col-md-12 col-12 col-sm-12">
+              <div class="card">
+                <div class="card-header">
+                  <h4>Data Pengajuan Anggota Mahasiswa</h4>
+                  <div class="card-header-action">
+                    <a href="#" class="btn btn-primary">View All</a>
+                  </div>
+                </div>
+                <div class="card-body p-0">
+                  <div class="table-responsive">
+                    <table class="table table-striped mb-0">
+                      <thead>
+                        <tr>
+                          <th>No</th>
+                          <th>NIM</th>
+                          <th>Nama Lengkap</th>
+                          <th>Email</th>
+                          <th>Gender</th>
+                          <th>Pesan</th>
+                          <th>Aksi</th>
+                        </tr>
+                      </thead>
+                      <tbody>                         
+                        <% let i = 1; dataPengajuan.forEach(function(pengaju){ %>
+                        <tr>
+                          <td>
+                            <%= i++; %>
+                          </td>
+                          <td>
+                            <%= pengaju.nim_permohonan_keanggotaan %>
+                            <div class="table-links">
+                              in <a href="#">Web Development</a>
+                              <div class="bullet"></div>
+                              <a href="#">View</a>
+                            </div>
+                          </td>
+                          <td>
+                            <%= pengaju.nama_permohonan_keanggotaan %>
+                          </td>
+                          <td>
+                            <%= pengaju.email_permohonan_keanggotaan %> 
+                          </td>
+                          <td>
+                            <%= pengaju.gender_permohonan_keanggotaan == "L" ? "Laki-Laki" : "Perempuan" %> 
+                          </td>
+                          <td>
+                            <%= pengaju.pesan_permohonan_keanggotaan %>
+                          </td>
+                          <td>
+                            <a class="btn btn-primary btn-action mr-1" data-toggle="tooltip" title="Edit"><i class="fas fa-pencil-alt"></i></a>
+                            <a class="btn btn-danger btn-action" data-toggle="tooltip" title="Delete" data-confirm="Are You Sure?|This action can not be undone. Do you want to continue?" data-confirm-yes="alert('Deleted')"><i class="fas fa-trash"></i></a>
+                          </td>
+                        </tr>
+                        <%  }); %>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- End Table Mahasiswa -->
+          </div>
+          <div class="row">
+            <!-- Quick Draft -->
+            <div class="col-lg-6 col-md-12 col-12 col-sm-12">
+              <form method="post" class="needs-validation" novalidate="">
+                <div class="card">
+                  <div class="card-header">
+                    <h4>Quick Draft</h4>
+                  </div>
+                  <div class="card-body pb-0">
+                    <div class="form-group">
+                      <label>Title</label>
+                      <input type="text" name="title" class="form-control" required>
+                      <div class="invalid-feedback">
+                        Please fill in the title
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label>Content</label>
+                      <textarea class="summernote-simple"></textarea>
+                    </div>
+                  </div>
+                  <div class="card-footer pt-0">
+                    <button class="btn btn-primary">Save Draft</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <!-- End Quick Draft -->
+          </div>
+          <!-- End Latest Posts and Quick Draft -->
+        </section>
+      </div>
+      <!-- Footer -->
+        <%- include('../parts/footer'); %>
+      <!-- End Footer -->
+    </div>
+  </div>
+
+ <!-- Script -->
+  <%- include('../parts/script'); %>
+ <!-- End Script -->
+</body>
+</html>

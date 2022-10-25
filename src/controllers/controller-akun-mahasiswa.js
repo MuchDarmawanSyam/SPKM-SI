@@ -10,7 +10,7 @@ module.exports = {
     showAkunMhs(req, res){
         pool.getConnection(function(err, connection) {
             if (err) throw err;
-            // Tampilka Daftar Akun Anggota Mahasiswa Selain Admin
+            // Tampilkan Daftar Akun Anggota Mahasiswa Selain Admin
             let sql = "SELECT * FROM `tbl_akun` WHERE `nim_mahasiswa` != 'Admin1'";
             connection.query(
                 sql, function(error, results){

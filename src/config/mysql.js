@@ -7,11 +7,5 @@ let dbConfig = {
     database: "db_spkm",
 };
 
-// Koneksi database
-// dbConnect.connect((err) => {
-//     if(err) throw err;
-//     console.log("Membuat Koneksi aplikasi ke mysql berhasil...")
-// });
-
-// Eksport modul Koneksi MySQL
+// Eksport Konfigurasi Koneksi MySQL
 module.exports = dbConfig;
