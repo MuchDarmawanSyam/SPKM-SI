@@ -39,11 +39,11 @@ module.exports = {
 
             // Menambahkan Anggota Mahasiswa
             let sql = "INSERT INTO `tbl_mahasiswa`(`nim_mahasiswa`, `nama_mahasiswa`, `gender_mahasiswa`, `alamat_mahasiswa`, `no_telp_mahasiswa`, `kelas_mahasiswa`, `id_semester`) VALUES (?, ?, ?, ?, ?, ?, ?)";
-            connection.query(sql, [nimMhs, namaMhs, genderMhs, '', '', '', semesterMhs], function(error, results){
+            connection.query(sql, [nimMhs, namaMhs, genderMhs, '-', '-', '-', semesterMhs], function(error, results){
                 if (error) throw error;
                 req.flash('color', 'success');
                 req.flash('status', 'Data Added');
-                req.flash('message', 'Menambahkan mahasiswa '+namaMhs+' berhasi.');
+                req.flash('message', 'Menambahkan mahasiswa '+namaMhs+' berhasil.');
 
                 res.redirect('/admin/mahasiswa');
             });
