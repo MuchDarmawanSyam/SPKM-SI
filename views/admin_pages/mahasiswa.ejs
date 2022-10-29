@@ -20,7 +20,14 @@
       <div class="main-content">
         <section class="section">
           <div class="section-header">
-            <h1><%= posisiHlmn[0] %> / <%= posisiHlmn[1] %></h1>
+            <div class="row col-12">
+              <div class="col-12 col-lg-6 col-md-6 mt-2">
+                <h1><%= posisiHlmn[0] %> / <%= posisiHlmn[1] %></h1>
+              </div>
+              <div class="col-12 col-lg-6 col-md-6 mt-2">
+                <%- include('../parts/messages'); %>
+              </div>
+            </div>
           </div>
           <!-- Table Mahasiswa and Quick Draft -->
           <div class="row">
@@ -30,7 +37,9 @@
                 <div class="card-header">
                   <h4>Data Mahasiswa (Anggota)</h4>
                   <div class="card-header-action">
-                    <a href="#" class="btn btn-primary">View All</a>
+                    <a href="#" class="btn btn-success" id="modal-tambah-mahasiswa" data-toggle="tooltip" title="Tambah Mahasiswa">
+                      <i class="fas fa-edit"></i>
+                    </a>
                   </div>
                 </div>
                 <div class="card-body p-0">
@@ -125,6 +134,9 @@
     </div>
   </div>
 
+  <!-- Modals -->
+  <%- include('../parts/modals/modal-mahasiswa'); %>
+  <!-- End Modals -->
  <!-- Script -->
   <%- include('../parts/script'); %>
  <!-- End Script -->

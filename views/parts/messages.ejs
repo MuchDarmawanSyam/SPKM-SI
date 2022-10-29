@@ -1,0 +1,10 @@
+<%if (pesanFlash) { %>
+    <div class="alert alert-<%= colorFlash %> alert-dismissible show fade ms-3">
+        <div class="alert-body">
+            <button class="close" data-dismiss="alert">
+                <span>&times;</span>
+            </button>
+            <%= pesanFlash %>&nbsp;
+        </div>      
+    </div>
+<% } %>
