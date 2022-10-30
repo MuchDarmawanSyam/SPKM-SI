@@ -14,6 +14,11 @@ nama = Salzadila Syam
 username = 2022051074046 // pola: nim
 password = mhspass740461209 // pola: mhspass + 5 angka belakang nim + 4 angka random
 
+Mahasiswa 3:
+nama = Mahasiswa Tiga
+username = 2022051074050
+password = mhspass740506177
+
 
 halaman template :
 file:///C:/Users/M%20Darmawan%20Syam%20-%20SI/Downloads/Templates/stisla-1-2.2.0/dist/bootstrap-badge.html

@@ -37,15 +37,32 @@ module.exports = {
             genderMhs = req.body.gender_mahasiswa;
             semesterMhs = req.body.semester_mahasiswa;
 
+            // kelola data yang diinput untuk tabel akun mahasiswa sesuai kerangka password
+            // 4 angka random
+            minimalNumber = 1000;
+            maksimalNumber = 9999;
+            randomNumber = Math.floor(Math.random() * (maksimalNumber - minimalNumber) ) + minimalNumber;
+            // 5 angka terakhir dari nim
+            lastNim = nimMhs.slice(8, 13);
+            // data untuk ditambahkan
+            usrMhs = nimMhs;
+            passMhs = "mhspass"+lastNim+randomNumber;
+
             // Menambahkan Anggota Mahasiswa
             let sql = "INSERT INTO `tbl_mahasiswa`(`nim_mahasiswa`, `nama_mahasiswa`, `gender_mahasiswa`, `alamat_mahasiswa`, `no_telp_mahasiswa`, `kelas_mahasiswa`, `id_semester`) VALUES (?, ?, ?, ?, ?, ?, ?)";
             connection.query(sql, [nimMhs, namaMhs, genderMhs, '-', '-', '-', semesterMhs], function(error, results){
                 if (error) throw error;
-                req.flash('color', 'success');
-                req.flash('status', 'Data Added');
-                req.flash('message', 'Menambahkan mahasiswa '+namaMhs+' berhasil.');
-
-                res.redirect('/admin/mahasiswa');
+                let sql2 = "INSERT INTO `tbl_akun`(`id_akun`, `username_akun`, `password_akun`, `id_lvl_akun`, `nim_mahasiswa`) VALUES (?, ?, SHA1(?), ?, ?)";
+                connection.query(sql2, ['', usrMhs, passMhs, 1, nimMhs], function(error2, results2){
+                    if (error2) throw error2;
+                    req.flash('color', 'success');
+                    req.flash('status', 'Data Added');
+                    req.flash('message', 'Menambahkan mahasiswa '+passMhs+' berhasil.');
+                    // Saat Ini dibranch doublesql
+                    // Buat Fungsi tambah data ke tabel akun mahasiswa didalam fungsi tambah data mahasiswa
+                    // tambah dibawah pengecekan error
+                    res.redirect('/admin/mahasiswa');
+                });
             });
         })
     }
