@@ -19,6 +19,11 @@ nama = Mahasiswa Tiga
 username = 2022051074050
 password = mhspass740506177
 
+Mahasiswa 4:
+nama = Mahasiswa Empat
+username = 2022051074051
+password = mhspass740516104
+
 
 halaman template :
 file:///C:/Users/M%20Darmawan%20Syam%20-%20SI/Downloads/Templates/stisla-1-2.2.0/dist/bootstrap-badge.html

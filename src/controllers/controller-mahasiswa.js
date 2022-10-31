@@ -48,7 +48,7 @@ module.exports = {
             usrMhs = nimMhs;
             passMhs = "mhspass"+lastNim+randomNumber;
 
-            // Menambahkan Anggota Mahasiswa
+            // Menambahkan Anggota Mahasiswa dan Akunnya Sekaligus
             let sql = "INSERT INTO `tbl_mahasiswa`(`nim_mahasiswa`, `nama_mahasiswa`, `gender_mahasiswa`, `alamat_mahasiswa`, `no_telp_mahasiswa`, `kelas_mahasiswa`, `id_semester`) VALUES (?, ?, ?, ?, ?, ?, ?)";
             connection.query(sql, [nimMhs, namaMhs, genderMhs, '-', '-', '-', semesterMhs], function(error, results){
                 if (error) throw error;
@@ -57,12 +57,21 @@ module.exports = {
                     if (error2) throw error2;
                     req.flash('color', 'success');
                     req.flash('status', 'Data Added');
-                    req.flash('message', 'Menambahkan mahasiswa '+passMhs+' berhasil.');
-                    // Saat Ini dibranch doublesql
-                    // Buat Fungsi tambah data ke tabel akun mahasiswa didalam fungsi tambah data mahasiswa
-                    // tambah dibawah pengecekan error
+                    req.flash('message', 'Menambahkan mahasiswa ('+passMhs+') berhasil.');
                     res.redirect('/admin/mahasiswa');
                 });
+            });
+        })
+    },
+    editFormMhs(req, res){ // Menggunakan Ajax
+        pool.getConnection(function(err, connection){
+            if (err) throw err;
+            nimMhs = req.body.id;
+
+            let sql = "SELECT * FROM `tbl_mahasiswa` WHERE `nim_mahasiswa` = ?";
+            connection.query(sql, [nimMhs], function(error, results){
+                if (error) throw error;
+                res.json(results[0]);
             });
         })
     }

@@ -1,3 +1,4 @@
+<!-- Form Tambah Mahasiswa -->
 <form action="/admin/mahasiswa/save" method="post" class="modal-part" id="modal-add-mahasiswa">
     <p>Menambah anggota akan secara otomatis generate akun Mahasiswa.</p>
     <!-- Untuk sementara buat crud seperti biasa tanpa asynchronus -->
@@ -22,6 +23,74 @@
           </div>
         </div>
         <input type="text" class="form-control" placeholder="ex: 2022051011233" name="nim_mahasiswa">
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Jenis Kelamin</label>
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text">
+            <i class="fas fa-male"></i>
+          </div>
+        </div>
+        <select name="gender_mahasiswa" class="form-control">
+          <option value="L" selected>Laki-Laki</option>
+          <option value="P">Perempuan</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Semester</label>
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text">
+            <i class="fas fa-file"></i>
+          </div>
+        </div>
+        <select name="semester_mahasiswa" class="form-control">
+          <option value="1" selected>Semester 1</option>
+          <option value="2">Semester 2 </option>
+          <option value="3">Semester 3</option>
+          <option value="4">Semester 4</option>
+          <option value="5">Semester 5</option>
+          <option value="6">Semester 6</option>
+          <option value="7">Semester 7</option>
+          <option value="8">Semester 8</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group mb-0">
+      <div class="custom-control custom-checkbox">
+        
+      </div>
+    </div>
+  </form>
+
+  <!-- Form Edit Mahasiswa -->
+  <form action="/admin/mahasiswa/save" method="post" class="modal-part" id="modal-edit-mahasiswa">
+    <p>Mengedit data anggota akan mempengaruhi akun Mahasiswa.</p>
+    <!-- Untuk sementara buat crud seperti biasa tanpa asynchronus -->
+    <!-- Membuat modal form tambah mahasiswa dengan fungsi tambah no-refresh dengan AJAX atau Express Async -->
+    <div class="form-group">
+      <label>Nama Lengkap</label>
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text">
+            <i class="fas fa-user"></i>
+          </div>
+        </div>
+        <input type="text" class="form-control nama_mahasiswa" placeholder="ex: Much Darmawan Iriansyah Syam" name="nama_mahasiswa">
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Nomor Induk Mahasiswa</label>
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text">
+            <i class="fas fa-users"></i>
+          </div>
+        </div>
+        <input type="text" class="form-control nim_mahasiswa" placeholder="ex: 2022051011233" name="nim_mahasiswa">
       </div>
     </div>
     <div class="form-group">

@@ -7,7 +7,7 @@
 
 "use strict";
 
-// Modal Tambah Anggota Mahasiswa
+// Modal Form Tambah Anggota Mahasiswa
 $("#modal-tambah-mahasiswa").fireModal({
     title: 'Form Tambah Anggota',
     body: $("#modal-add-mahasiswa"),
@@ -41,3 +41,36 @@ $("#modal-tambah-mahasiswa").fireModal({
       }
     ]
   });
+
+// Modal Form Edit Mahasiswa
+$(".modal-edit-mahasiswa").fireModal({
+  title: 'Form Edit Anggota',
+  body: $("#modal-edit-mahasiswa"),
+  footerClass: 'bg-whitesmoke',
+  autoFocus: false,
+  buttons: [
+    {
+      text: 'Edit Anggota',
+      submit: true,
+      class: 'btn btn-primary btn-shadow',
+      handler: function(modal) {
+      }
+    }
+  ]
+});
+
+// Isi Data Mahasiswa pada Form Edit Mahasiswa
+$(document).on('click', '.modal-edit-mahasiswa', function(){
+  var nim = $(this).data('nim');
+
+  $.ajax({
+    url: "http://localhost:3030/Admin/Mahasiswa/edit",
+    method: "POST",
+    data: {id:nim},
+    dataType: "JSON",
+    success: function(data){
+      $(".nama_mahasiswa").val(data.nama_mahasiswa);
+      $(".nim_mahasiswa").val(data.nim_mahasiswa);
+    }
+  });
+});
