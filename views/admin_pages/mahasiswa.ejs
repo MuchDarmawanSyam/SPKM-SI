@@ -82,9 +82,14 @@
                           <td>
                             <%= "Semester "+Mhs.id_semester %>
                           </td>
-                          <td>
-                            <a class="btn btn-primary btn-action mr-1 modal-edit-mahasiswa" data-toggle="tooltip" title="Edit" data-nim="<%= Mhs.nim_mahasiswa %>"><i class="fas fa-pencil-alt"></i></a>
-                            <a class="btn btn-danger btn-action" data-toggle="tooltip" title="Delete" data-confirm="Menghapus Data (<%= Mhs.nama_mahasiswa %>)?|Aksi ini akan menghapus data secara permanen. Apakah anda ingin melanjutkan?" data-confirm-yes="alert('Deleted')"><i class="fas fa-trash"></i></a>
+                          <td class="row">
+                            <form action="#modal">
+                              <button class="btn btn-primary btn-action mr-1 modal-edit-mahasiswa" data-toggle="tooltip" title="Edit" data-nim="<%= Mhs.nim_mahasiswa %>"><i class="fas fa-pencil-alt"></i></button>
+                            </form>
+                            <form action="#modal">
+                              <button type="submit" class="btn btn-danger btn-action modal-delete-mahasiswa" data-toggle="tooltip" title="Delete" data-nim="<%= Mhs.nim_mahasiswa %>"><i class="fas fa-trash"></i></button>
+                              <!-- Buat delete dinamis -->
+                            </form>
                           </td>
                         </tr>
                         <%  }); %>

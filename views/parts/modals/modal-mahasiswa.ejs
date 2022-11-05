@@ -1,8 +1,6 @@
 <!-- Form Tambah Mahasiswa -->
 <form action="/admin/mahasiswa/save" method="post" class="modal-part" id="modal-add-mahasiswa">
     <p>Menambah anggota akan secara otomatis generate akun Mahasiswa.</p>
-    <!-- Untuk sementara buat crud seperti biasa tanpa asynchronus -->
-    <!-- Membuat modal form tambah mahasiswa dengan fungsi tambah no-refresh dengan AJAX atau Express Async -->
     <div class="form-group">
       <label>Nama Lengkap</label>
       <div class="input-group">
@@ -67,8 +65,8 @@
   </form>
 
   <!-- Form Edit Mahasiswa -->
-  <form action="/admin/mahasiswa/save" method="post" class="modal-part" id="modal-edit-mahasiswa">
-    <p>Mengedit data anggota akan mempengaruhi akun Mahasiswa.</p>
+  <form action="/admin/mahasiswa/update" method="post" class="modal-part" id="modal-edit-mahasiswa">
+    <p>Mengedit data anggota akan mempengaruhi data akun Mahasiswa.</p>
     <!-- Untuk sementara buat crud seperti biasa tanpa asynchronus -->
     <!-- Membuat modal form tambah mahasiswa dengan fungsi tambah no-refresh dengan AJAX atau Express Async -->
     <div class="form-group">
@@ -90,7 +88,7 @@
             <i class="fas fa-users"></i>
           </div>
         </div>
-        <input type="text" class="form-control nim_mahasiswa" placeholder="ex: 2022051011233" name="nim_mahasiswa">
+        <input type="text" class="form-control nim_mahasiswa" placeholder="ex: 2022051011233" readonly>
       </div>
     </div>
     <div class="form-group">
@@ -102,8 +100,8 @@
           </div>
         </div>
         <select name="gender_mahasiswa" class="form-control">
-          <option value="L" selected>Laki-Laki</option>
-          <option value="P">Perempuan</option>
+          <option value="L" class="gender_laki">Laki-Laki</option>
+          <option value="P" class="gender_cewe">Perempuan</option>
         </select>
       </div>
     </div>
@@ -116,7 +114,7 @@
           </div>
         </div>
         <select name="semester_mahasiswa" class="form-control">
-          <option value="1" selected>Semester 1</option>
+          <option value="1">Semester 1</option>
           <option value="2">Semester 2 </option>
           <option value="3">Semester 3</option>
           <option value="4">Semester 4</option>
@@ -128,8 +126,20 @@
       </div>
     </div>
     <div class="form-group mb-0">
-      <div class="custom-control custom-checkbox">
-        
+      <div class="custom-control">
+        <input type="hidden" class="nim_mahasiswa" name="nim_mahasiswa">
+        <input type="hidden" class="gender_mahasiswa" name="nim_mahasiswa">
+      </div>
+    </div>
+  </form>
+
+
+
+  <form action="/admin/mahasiswa/delete" method="post" class="modal-part" id="modal-delete-mahasiswa">
+    <p>Menhapus data anggota akan mempengaruhi data akun Mahasiswa.</p>
+    <input type="hidden" class="nim_delete_mahasiswa" name="nim_mahasiswa">
+    <div class="form-group mb-0">
+      <div class="custom-control">
       </div>
     </div>
   </form>

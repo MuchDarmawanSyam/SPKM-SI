@@ -74,5 +74,42 @@ module.exports = {
                 res.json(results[0]);
             });
         })
+    },
+    updateMhs(req, res){
+        pool.getConnection(function(err, connection){
+            if (err) throw err;
+            
+            nimMhs = req.body.nim_mahasiswa;
+            namaMhs = req.body.nama_mahasiswa;
+            genderMhs = req.body.gender_mahasiswa;
+            semesterMhs = req.body.semester_mahasiswa;
+            let sql = "UPDATE `tbl_mahasiswa` SET `nama_mahasiswa`=?,`gender_mahasiswa`=?,`id_semester`=? WHERE `nim_mahasiswa`=?";
+            connection.query(sql, [namaMhs, genderMhs, semesterMhs, nimMhs], function(error, results){
+                if (error) throw error;
+                req.flash('color', 'success');
+                req.flash('status', 'Data Edited');
+                req.flash('message', 'Berhasil memperbarui data mahasiswa ('+namaMhs+').');
+                res.redirect('/admin/mahasiswa');
+            });
+        })
+    },
+    deleteMhs(req, res){
+        pool.getConnection(function(err, connection){
+            if (err) throw err;
+
+            nimMhs = req.body.nim_mahasiswa;
+            let sql = "DELETE FROM `tbl_akun` WHERE `nim_mahasiswa` = ?";
+            connection.query(sql, [nimMhs], function(error, results){
+                if (error) throw error;
+                let sql2 = "DELETE FROM `tbl_mahasiswa` WHERE `nim_mahasiswa` = ?";
+                connection.query(sql2, [nimMhs], function(error2, results){
+                    if (error2) throw error2;
+                    req.flash('color', 'success');
+                    req.flash('status', 'Data deleted');
+                    req.flash('message', 'Berhasil menghapus data mahasiswa ('+nimMhs+').');
+                    res.redirect('/admin/mahasiswa');
+                });
+            });
+        })
     }
 }
