@@ -7,30 +7,25 @@
 
 "use strict";
 
+// Gunakan Datatable untuk Tabel Mahasiswa
+$(document).ready(function () {
+  $('#dataTableMhs').DataTable();
+});
+// Datatable untuk Tabel Akun Mahasiswa
+$(document).ready(function () {
+  $('#dataTableAkunMhs').DataTable();
+});
+// Datatable untuk Tabel Permohonan
+$(document).ready(function () {
+  $('#dataTablePrmhnMhs').DataTable();
+});
+
 // Modal Form Tambah Anggota Mahasiswa
 $("#modal-tambah-mahasiswa").fireModal({
     title: 'Form Tambah Anggota',
     body: $("#modal-add-mahasiswa"),
     footerClass: 'bg-whitesmoke',
     autoFocus: false,
-    // onFormSubmit: function(modal, e, form) {
-    //   // Form Data
-    //   let form_data = $(e.target).serialize();
-    //   console.log(form_data)
-  
-    //   // DO AJAX HERE
-    //   let fake_ajax = setTimeout(function() {
-    //     form.stopProgress();
-    //     modal.find('.modal-body').prepend('<div class="alert alert-info">Please check your browser console</div>')
-  
-    //     clearInterval(fake_ajax);
-    //   }, 1500);
-  
-    //   e.preventDefault();
-    // },
-    // shown: function(modal, form) {
-    //   console.log(form)
-    // },
     buttons: [
       {
         text: 'Tambah Anggota',
@@ -72,6 +67,7 @@ $(document).on('click', '.modal-edit-mahasiswa', function(){
       $(".nama_mahasiswa").val(data.nama_mahasiswa);
       $(".nim_mahasiswa").val(data.nim_mahasiswa);
       $(".gender_mahasiswa").val(data.gender_mahasiswa);
+      // Tambah Semester disini dan lanjutkan seperti gender
     }
   });
 
