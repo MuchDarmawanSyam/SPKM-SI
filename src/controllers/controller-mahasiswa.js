@@ -63,7 +63,7 @@ module.exports = {
             });
         })
     },
-    editFormMhs(req, res){ // Menggunakan Ajax
+    getMhs(req, res){ // Menggunakan Ajax
         pool.getConnection(function(err, connection){
             if (err) throw err;
             nimMhs = req.body.id;
