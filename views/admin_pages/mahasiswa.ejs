@@ -65,12 +65,12 @@ jangan lupa soal kode jquery yg tdk bisa load karena tabel beda halaman -->
                             <%= i++; %>
                           </td>
                           <td>
-                            <a href="#" class="font-weight-600"><img src="assets/img/avatar/avatar-1.png" alt="avatar" width="30" class="rounded-circle mr-1"> <%= Mhs.nama_mahasiswa %></a>
+                            <img src="/img/profil/Mahasiswa/mahasiswa-default.jpg" alt="avatar <%= Mhs.nama_mahasiswa %>" width="30" class="rounded-circle mr-1 font-weight-600">
                           </td>
                           <td>
                             <%= Mhs.nim_mahasiswa %>
                             <div class="table-links">
-                              <a href="#">Detail</a>
+                              <a href="#" class="btn-detail" data-detail="<%= Mhs.nim_mahasiswa %>">Detail</a>
                               <div class="bullet"></div>
                               <a href="#">Web Development</a>
                             </div>
@@ -106,7 +106,7 @@ jangan lupa soal kode jquery yg tdk bisa load karena tabel beda halaman -->
           <div class="row">
             <!-- Detail Mahasiswa -->
             <div class="col-12 col-md-6 col-lg-12">
-              <div class="card card-dark">
+              <div class="card card-dark" id="target-detail">
                 <div class="card-header">
                   <h4>Detail Anggota Mahasiswa SI</h4>
                   <form class="card-header-form mr-2">
@@ -133,43 +133,43 @@ jangan lupa soal kode jquery yg tdk bisa load karena tabel beda halaman -->
                               <div class="form-group">
                                 <label>Nama Lengkap Anggota:</label>
                                 <div class="input-group">
-                                  <input type="text" value="Nama Mahasiswa" class="form-control" readonly>
+                                  <input type="text" id="detailNamaMhs" value="" class="form-control" readonly>
                                 </div>
                               </div>
                               <div class="form-group">
                                 <label>NIM Anggota:</label>
                                 <div class="input-group">
-                                  <input type="text" value="NIM Mahasiswa" class="form-control" readonly>
+                                  <input type="text" id="detailNimMhs" value="" class="form-control" readonly>
                                 </div>
                               </div>
                               <div class="form-group">
                                 <label>Jenis Kelamin Anggota:</label>
                                 <div class="input-group">
-                                  <input type="text" value="Jenis Kelamin Mahasiswa" class="form-control" readonly>
+                                  <input type="text" id="detailGenderMhs" value="" class="form-control" readonly>
                                 </div>
                               </div>
                               <div class="form-group">
                                 <label>Alamat Anggota:</label>
                                 <div class="input-group">
-                                  <input type="text" value="Alamat Mahasiswa" class="form-control" readonly>
+                                  <input type="text" id="detailAlamatMhs" value="" class="form-control" readonly>
                                 </div>
                               </div>
                               <div class="form-group">
                                 <label>No. Handphone Anggota:</label>
                                 <div class="input-group">
-                                  <input type="text" value="No Handphone Mahasiswa" class="form-control" readonly>
+                                  <input type="text" id="detailNohpMhs" value="" class="form-control" readonly>
                                 </div>
                               </div>
                               <div class="form-group">
                                 <label>Kelas Anggota:</label>
                                 <div class="input-group">
-                                  <input type="text" value="Kelas Mahasiswa" class="form-control" readonly>
+                                  <input type="text" id="detailKelasMhs" value="" class="form-control" readonly>
                                 </div>
                               </div>
                               <div class="form-group">
                                 <label>Semester Anggota:</label>
                                 <div class="input-group">
-                                  <input type="text" value="Semester Mahasiswa" class="form-control" readonly>
+                                  <input type="text" id="detailSemesterMhs" value="" class="form-control" readonly>
                                 </div>
                               </div>
                             </div>
@@ -184,6 +184,14 @@ jangan lupa soal kode jquery yg tdk bisa load karena tabel beda halaman -->
                                 <label>Profil Anggota:</label>
                                 <div class="input-group">
                                   <img src="/img/profil/Mahasiswa/mahasiswa-default.jpg" alt="Profil Mahasiswa" width="170px" height="150px">
+                                </div>
+                              </div>
+                              <div class="form-group">
+                                <label for="">Aksi Detail:</label>
+                                <div class="input-group">
+                                  <button type="reset" class="btn btn-warning btn-action" data-toggle="tooltip" title="Kosongkan Detail">
+                                    <i class="fas fa-redo-alt"></i>
+                                  </button>
                                 </div>
                               </div>
                             </div>

@@ -13,6 +13,28 @@ $(document).ready(function () {
   $('#dataTableMhs').DataTable();
   $('#dataTableAkunMhs').DataTable();
   $('#dataTablePrmhnMhs').DataTable();
+
+  // Buat Tombol Scroll to Detail Mahasiswa dan Ajax
+  $(".btn-detail").click(function() {
+    var nimDetail =  $(this).data('detail');
+    $.ajax({
+      url: "http://localhost:3030/Admin/Mahasiswa/edit",
+      method: "POST",
+      data: {id:nimDetail},
+      dataType: "JSON",
+      success: function(dataDetail){
+        $("#detailNamaMhs").val(dataDetail.nama_mahasiswa);
+        $("#detailNimMhs").val(dataDetail.nim_mahasiswa);
+        $("#detailGenderMhs").val(dataDetail.gender_mahasiswa);
+        $("#detailAlamatMhs").val(dataDetail.alamat_mahasiswa);
+        $("#detailNohpMhs").val(dataDetail.no_telp_mahasiswa);
+        $("#detailKelasMhs").val(dataDetail.kelas_mahasiswa);
+        $("#detailSemesterMhs").val(dataDetail.id_semester);
+      }
+    });
+
+    $("html,body").animate({ scrollTop: $('#target-detail').offset().top}, 1000);
+  });
 });
 
 // Modal Form Tambah Anggota Mahasiswa
