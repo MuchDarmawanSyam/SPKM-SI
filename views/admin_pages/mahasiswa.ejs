@@ -15,7 +15,9 @@
         <%- include('../parts/sidebar'); %>
       <!-- End Sidebar -->
       </div>
-
+<!-- Membuat card untuk detail mahasiswa, kemuadian buat scroll go to dibawah nim yg langsung auto scroll ke card detail mahasiswa
+memisahkan kode javascript pada custom.js sesuai halaman yg membutuhkan kode. load dataTables tetap di custom sebagai kode default tiap halaman
+jangan lupa soal kode jquery yg tdk bisa load karena tabel beda halaman -->
       <!-- Main Content -->
       <div class="main-content">
         <section class="section">
@@ -29,7 +31,7 @@
               </div>
             </div>
           </div>
-          <!-- Table Mahasiswa and Quick Draft -->
+          <!-- Table Mahasiswa & Detal Mahasiswa -->
           <div class="row">
             <!-- Table Mahasiswa -->
             <div class="col-lg-12 col-md-12 col-12 col-sm-12">
@@ -68,9 +70,9 @@
                           <td>
                             <%= Mhs.nim_mahasiswa %>
                             <div class="table-links">
-                              in <a href="#">Web Development</a>
+                              <a href="#">Detail</a>
                               <div class="bullet"></div>
-                              <a href="#">View</a>
+                              <a href="#">Web Development</a>
                             </div>
                           </td>
                           <td>
@@ -102,35 +104,105 @@
             <!-- End Table Mahasiswa -->
           </div>
           <div class="row">
-            <!-- Quick Draft -->
-            <div class="col-lg-6 col-md-12 col-12 col-sm-12">
-              <form method="post" class="needs-validation" novalidate="">
-                <div class="card">
-                  <div class="card-header">
-                    <h4>Quick Draft</h4>
-                  </div>
-                  <div class="card-body pb-0">
-                    <div class="form-group">
-                      <label>Title</label>
-                      <input type="text" name="title" class="form-control" required>
-                      <div class="invalid-feedback">
-                        Please fill in the title
+            <!-- Detail Mahasiswa -->
+            <div class="col-12 col-md-6 col-lg-12">
+              <div class="card card-dark">
+                <div class="card-header">
+                  <h4>Detail Anggota Mahasiswa SI</h4>
+                  <form class="card-header-form mr-2">
+                    <div class="input-group">
+                      <input type="text" name="search" class="form-control" placeholder="Dapatkan data dari NIM">
+                      <div class="input-group-btn">
+                        <button class="btn btn-primary btn-icon"><i class="fas fa-search"></i></button>
                       </div>
                     </div>
-                    <div class="form-group">
-                      <label>Content</label>
-                      <textarea class="summernote-simple"></textarea>
-                    </div>
-                  </div>
-                  <div class="card-footer pt-0">
-                    <button class="btn btn-primary">Save Draft</button>
+                  </form>
+                  <div class="card-header-action">
+                    <a data-collapse="#mycard-collapse" class="btn btn-icon btn-info" href="#"><i class="fas fa-minus"></i></a>
                   </div>
                 </div>
-              </form>
+                <div class="collapse show" id="mycard-collapse">
+                  <!-- Detail Anggota Mahasiswa -->
+                  <div class="card-body">
+                    <form action="#">
+                      <div class="row">
+                        <!-- Detail Nama dan Info Lain -->
+                        <div class="col-12 col-md-6 col-lg-6">
+                          <div class="card">
+                            <div class="card-body">
+                              <div class="form-group">
+                                <label>Nama Lengkap Anggota:</label>
+                                <div class="input-group">
+                                  <input type="text" value="Nama Mahasiswa" class="form-control" readonly>
+                                </div>
+                              </div>
+                              <div class="form-group">
+                                <label>NIM Anggota:</label>
+                                <div class="input-group">
+                                  <input type="text" value="NIM Mahasiswa" class="form-control" readonly>
+                                </div>
+                              </div>
+                              <div class="form-group">
+                                <label>Jenis Kelamin Anggota:</label>
+                                <div class="input-group">
+                                  <input type="text" value="Jenis Kelamin Mahasiswa" class="form-control" readonly>
+                                </div>
+                              </div>
+                              <div class="form-group">
+                                <label>Alamat Anggota:</label>
+                                <div class="input-group">
+                                  <input type="text" value="Alamat Mahasiswa" class="form-control" readonly>
+                                </div>
+                              </div>
+                              <div class="form-group">
+                                <label>No. Handphone Anggota:</label>
+                                <div class="input-group">
+                                  <input type="text" value="No Handphone Mahasiswa" class="form-control" readonly>
+                                </div>
+                              </div>
+                              <div class="form-group">
+                                <label>Kelas Anggota:</label>
+                                <div class="input-group">
+                                  <input type="text" value="Kelas Mahasiswa" class="form-control" readonly>
+                                </div>
+                              </div>
+                              <div class="form-group">
+                                <label>Semester Anggota:</label>
+                                <div class="input-group">
+                                  <input type="text" value="Semester Mahasiswa" class="form-control" readonly>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- END Detail Nama dan Info Lain -->
+                        <!-- Detail Profil -->
+                        <div class="col-12 col-md-6 col-lg-6">
+                          <div class="card">
+                            <div class="card-body">
+                              <div class="form-group">
+                                <label>Profil Anggota:</label>
+                                <div class="input-group">
+                                  <img src="/img/profil/Mahasiswa/mahasiswa-default.jpg" alt="Profil Mahasiswa" width="170px" height="150px">
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- END Detail Profil -->
+                      </div>
+                    </form>
+                  </div>
+                  <!-- END Detail Anggota Mahasiswa -->
+                  <div class="card-footer">
+                    Card Footer
+                  </div>
+                </div>
+              </div>
             </div>
-            <!-- End Quick Draft -->
+            <!-- End Detail Mahasiswa -->
           </div>
-          <!-- End Latest Posts and Quick Draft -->
+          <!-- End Tabel Mahasiswa & Detail Mahasiswa -->
         </section>
       </div>
       <!-- Footer -->

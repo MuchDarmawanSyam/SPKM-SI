@@ -71,7 +71,7 @@
                             <%= pengaju.gender_permohonan_keanggotaan == "L" ? "Laki-Laki" : "Perempuan" %> 
                           </td>
                           <td>
-                            <%= pengaju.pesan_permohonan_keanggotaan %>
+                            <%= pengaju.pesan_permohonan_keanggotaan.slice(0, 10)+"..." %>
                           </td>
                           <td>
                             <a class="btn btn-primary btn-action mr-1" data-toggle="tooltip" title="Edit"><i class="fas fa-pencil-alt"></i></a>

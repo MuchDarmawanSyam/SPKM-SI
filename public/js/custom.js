@@ -4,19 +4,14 @@
  * because it will make it harder for you to update.
  * 
  */
+  // Modularisasi script js ke beberapa modul sesuai halaman untuk memudahkan pengembangan
 
 "use strict";
 
-// Gunakan Datatable untuk Tabel Mahasiswa
+// Gunakan Datatable untuk semua tabel
 $(document).ready(function () {
   $('#dataTableMhs').DataTable();
-});
-// Datatable untuk Tabel Akun Mahasiswa
-$(document).ready(function () {
   $('#dataTableAkunMhs').DataTable();
-});
-// Datatable untuk Tabel Permohonan
-$(document).ready(function () {
   $('#dataTablePrmhnMhs').DataTable();
 });
 
