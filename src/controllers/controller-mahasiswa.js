@@ -97,7 +97,7 @@ module.exports = {
         pool.getConnection(function(err, connection){
             if (err) throw err;
 
-            nimMhs = req.body.nim_mahasiswa;
+            nimMhs = req.body.nim_delete_mahasiswa;
             let sql = "DELETE FROM `tbl_akun` WHERE `nim_mahasiswa` = ?";
             connection.query(sql, [nimMhs], function(error, results){
                 if (error) throw error;
