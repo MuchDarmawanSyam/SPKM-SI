@@ -63,7 +63,7 @@ module.exports = {
             });
         })
     },
-    getMhs(req, res){ // Menggunakan Ajax
+    getMhs(req, res){ // API Mahasiswa
         pool.getConnection(function(err, connection){
             if (err) throw err;
             nimMhs = req.body.id;

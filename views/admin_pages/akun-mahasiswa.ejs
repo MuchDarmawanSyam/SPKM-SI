@@ -22,16 +22,13 @@
           <div class="section-header">
             <h1><%= posisiHlmn[0] %> / <%= posisiHlmn[1] %></h1>
           </div>
-          <!-- Table Mahasiswa and Quick Draft -->
+          <!-- Akun Mahasiswa, Detail Akun Mahasiswa dan Quick Draft -->
           <div class="row">
             <!-- Table Mahasiswa -->
             <div class="col-lg-12 col-md-12 col-12 col-sm-12">
               <div class="card">
                 <div class="card-header">
                   <h4>Data Akun Mahasiswa (Anggota)</h4>
-                  <div class="card-header-action">
-                    <a href="#" class="btn btn-primary">View All</a>
-                  </div>
                 </div>
                 <div class="card-body p-0">
                   <div class="table-responsive">
@@ -54,9 +51,9 @@
                           <td>
                             <%= AkunMhs.nim_mahasiswa %>
                             <div class="table-links">
-                              in <a href="#">Web Development</a>
+                              <a href="#" class="btn-detail" data-detail="<%= AkunMhs.nim_mahasiswa %>">Detail</a>
                               <div class="bullet"></div>
-                              <a href="#">View</a>
+                              <a href="#">Web Development</a>
                             </div>
                           </td>
                           <td>
@@ -78,6 +75,95 @@
               </div>
             </div>
             <!-- End Table Mahasiswa -->
+          </div>
+          <div class="row">
+            <!-- Detail Akun Mahasiswa -->
+            <div class="col-12 col-md-6 col-lg-12">
+              <div class="card card-dark" id="target-detail">
+                <div class="card-header">
+                  <h4>Detail Akun Anggota Mahasiswa SI</h4>
+                  <form class="card-header-form mr-2">
+                    <div class="input-group">
+                      <input type="text" name="search" class="form-control" placeholder="Dapatkan data dari NIM">
+                      <div class="input-group-btn">
+                        <button class="btn btn-primary btn-icon"><i class="fas fa-search"></i></button>
+                      </div>
+                    </div>
+                  </form>
+                  <div class="card-header-action">
+                    <a data-collapse="#mycard-collapse" class="btn btn-icon btn-info" href="#"><i class="fas fa-minus"></i></a>
+                  </div>
+                </div>
+                <div class="collapse show" id="mycard-collapse">
+                  <!-- Detail Akun Anggota Mahasiswa -->
+                  <div class="card-body">
+                    <form action="#">
+                      <div class="row">
+                        <!-- Detail Nama dan Info Lain -->
+                        <div class="col-12 col-md-6 col-lg-6">
+                          <div class="card">
+                            <div class="card-body">
+                              <div class="form-group">
+                                <label>Nama Lengkap Anggota:</label>
+                                <div class="input-group">
+                                  <input type="text" id="detailNamaMhs" value="" class="form-control" readonly>
+                                </div>
+                              </div>
+                              <div class="form-group">
+                                <label>NIM Anggota:</label>
+                                <div class="input-group">
+                                  <input type="text" id="detailNimMhs" value="" class="form-control" readonly>
+                                </div>
+                              </div>
+                              <div class="form-group">
+                                <label>Jenis Kelamin Anggota:</label>
+                                <div class="input-group">
+                                  <input type="text" id="detailGenderMhs" value="" class="form-control" readonly>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- END Detail Nama dan Info Lain -->
+                        <!-- Detail Profil -->
+                        <div class="col-12 col-md-6 col-lg-6">
+                          <div class="card">
+                            <div class="card-body">
+                              <div class="form-group">
+                                <label>Username Anggota:</label>
+                                <div class="input-group">
+                                  <input type="text" id="detailUsername" value="" class="form-control" readonly>
+                                </div>
+                              </div>
+                              <div class="form-group">
+                                <label>Password Anggota:</label>
+                                <div class="input-group">
+                                  <input type="text" id="detailPassword" value="" class="form-control" readonly>
+                                </div>
+                              </div>
+                              <div class="form-group">
+                                <label for="">Aksi Detail:</label>
+                                <div class="input-group">
+                                  <button type="reset" class="btn btn-warning btn-action" data-toggle="tooltip" title="Kosongkan Detail">
+                                    <i class="fas fa-redo-alt"></i>
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- END Detail Profil -->
+                      </div>
+                    </form>
+                  </div>
+                  <!-- END Detail Akun Anggota Mahasiswa -->
+                  <div class="card-footer">
+                    Card Footer
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- End Detail Akun Mahasiswa -->
           </div>
           <div class="row">
             <!-- Quick Draft -->
@@ -108,7 +194,7 @@
             </div>
             <!-- End Quick Draft -->
           </div>
-          <!-- End Latest Posts and Quick Draft -->
+          <!-- End Akun Mahasiswa, Detail Akun Mahasiswa dan Quick Draft -->
         </section>
       </div>
       <!-- Footer -->
@@ -117,9 +203,9 @@
     </div>
   </div>
 
- <!-- Script -->
+  <!-- Script -->
   <%- include('../parts/script'); %>
-  <script src="/js/myCustom/custom-akuMahasiswa.js"></script>
+  <script src="/js/myCustom/custom-akunMahasiswa.js"></script>
  <!-- End Script -->
 </body>
 </html>

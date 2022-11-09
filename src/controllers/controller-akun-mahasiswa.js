@@ -24,5 +24,17 @@ module.exports = {
                 }
             );
         })
+    },
+    detailAkunMhs(req, res){ // API Akun Mahasiswa
+        pool.getConnection(function(err, connection){
+            if (err) throw err;
+            nimMhs = req.body.id;
+
+            let sql = "SELECT tbl_mahasiswa.nama_mahasiswa, tbl_mahasiswa.gender_mahasiswa, tbl_akun.username_akun, tbl_akun.password_akun, tbl_akun.id_lvl_akun FROM tbl_mahasiswa INNER JOIN tbl_akun ON tbl_mahasiswa.nim_mahasiswa = tbl_akun.nim_mahasiswa WHERE tbl_akun.nim_mahasiswa = ?";
+            connection.query(sql, [nimMhs], function(error, results){
+                if (error) throw error;
+                res.json(results[0]);
+            });
+        })
     }
 }
