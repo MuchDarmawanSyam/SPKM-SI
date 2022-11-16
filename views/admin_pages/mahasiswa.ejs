@@ -106,11 +106,11 @@
               <div class="card card-dark" id="target-detail">
                 <div class="card-header">
                   <h4>Detail Anggota Mahasiswa SI</h4>
-                  <form class="card-header-form mr-2">
+                  <form action="#" method="post" class="card-header-form mr-2">
                     <div class="input-group">
-                      <input type="text" name="search" class="form-control" placeholder="Dapatkan data dari NIM">
+                      <input type="text" id="searchMhsbyNim" name="search" class="form-control" placeholder="Dapatkan data dari NIM">
                       <div class="input-group-btn">
-                        <button class="btn btn-primary btn-icon"><i class="fas fa-search"></i></button>
+                        <button id="btnSearchMhsbyNim" class="btn btn-primary btn-icon"><i class="fas fa-search"></i></button>
                       </div>
                     </div>
                   </form>
@@ -206,6 +206,35 @@
               </div>
             </div>
             <!-- End Detail Mahasiswa -->
+          </div>
+          <div class="row">
+            <!-- Quick Draft -->
+            <div class="col-lg-6 col-md-12 col-12 col-sm-12">
+              <form method="post" class="needs-validation" novalidate="">
+                <div class="card">
+                  <div class="card-header">
+                    <h4>Quick Draft</h4>
+                  </div>
+                  <div class="card-body pb-0">
+                    <div class="form-group">
+                      <label>Title</label>
+                      <input type="text" name="title" class="form-control" required>
+                      <div class="invalid-feedback">
+                        Please fill in the title
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label>Content</label>
+                      <textarea class="summernote-simple"></textarea>
+                    </div>
+                  </div>
+                  <div class="card-footer pt-0">
+                    <button class="btn btn-primary">Save Draft</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <!-- End Quick Draft -->
           </div>
           <!-- End Tabel Mahasiswa & Detail Mahasiswa -->
         </section>

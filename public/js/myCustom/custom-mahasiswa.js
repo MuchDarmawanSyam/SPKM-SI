@@ -120,4 +120,27 @@
    var nim = $(this).data('nim');
    $('.nim_delete_mahasiswa').val(nim);
  });
+
+ // Dapatkan Data Mahasiswa via NIM Search
+ $(document).on('click', '#btnSearchMhsbyNim', function(e){
+  var nimSearch = $("#searchMhsbyNim").val();
+  $.ajax({
+    url: "http://localhost:3030/Admin/Mahasiswa/edit",
+    method: "POST",
+    data: {id:nimSearch},
+    dataType: "JSON",
+    success: function(dataDetailSearch){
+      $("#detailNamaMhs").val(dataDetailSearch.nama_mahasiswa);
+      $("#detailNimMhs").val(dataDetailSearch.nim_mahasiswa);
+      $("#detailGenderMhs").val(dataDetailSearch.gender_mahasiswa);
+      $("#detailAlamatMhs").val(dataDetailSearch.alamat_mahasiswa);
+      $("#detailNohpMhs").val(dataDetailSearch.no_telp_mahasiswa);
+      $("#detailKelasMhs").val(dataDetailSearch.kelas_mahasiswa);
+      $("#detailSemesterMhs").val(dataDetailSearch.id_semester);
+    }
+  });
+
+  $("html,body").animate({ scrollTop: $('#target-detail').offset().top}, 1000);
+  e.preventDefault();
+ });
  
