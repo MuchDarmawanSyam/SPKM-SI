@@ -15,7 +15,16 @@
         <%- include('../parts/sidebar'); %>
       <!-- End Sidebar -->
       </div>
-
+ <!-- 
+ - Tambah field email_mhs pada tbl_mahasiswa
+ - Tambah alert di akun dan pengajuan mahasiswa
+ - tambah field yg menerima
+ - Buat Reset Password dan alertnya
+ - Lanjut buat tombol dan fungsi untuk menerima dan menolak pengajuan keanggotaan
+ - Penerimaan pengajuan langsung menambah otomatis data mahasiswa dan akun mahasiswa dan buat alert untuk password yang belum dienkripsi
+ - Untuk Nanti:: Buat message via Gmail berisi Username dan Password;
+ - Mencari icon x
+-->
       <!-- Main Content -->
       <div class="main-content">
         <section class="section">
@@ -29,9 +38,6 @@
               <div class="card">
                 <div class="card-header">
                   <h4>Data Pengajuan Keanggotaan Mahasiswa</h4>
-                  <div class="card-header-action">
-                    <a href="#" class="btn btn-primary">View All</a>
-                  </div>
                 </div>
                 <div class="card-body p-0">
                   <div class="table-responsive">
@@ -56,9 +62,7 @@
                           <td>
                             <%= pengaju.nim_permohonan_keanggotaan %>
                             <div class="table-links">
-                              in <a href="#">Web Development</a>
-                              <div class="bullet"></div>
-                              <a href="#">View</a>
+                              <a href="#">Diajukan</a>
                             </div>
                           </td>
                           <td>
@@ -73,9 +77,21 @@
                           <td>
                             <%= pengaju.pesan_permohonan_keanggotaan.slice(0, 10)+"..." %>
                           </td>
-                          <td>
-                            <a class="btn btn-primary btn-action mr-1" data-toggle="tooltip" title="Edit"><i class="fas fa-pencil-alt"></i></a>
-                            <a class="btn btn-danger btn-action" data-toggle="tooltip" title="Delete" data-confirm="Menghapus Data (<%= pengaju.nama_permohonan_keanggotaan %>)?|Aksi ini akan menghapus data secara permanen. Apakah anda ingin melanjutkan?" data-confirm-yes="alert('Deleted')"><i class="fas fa-trash"></i></a>
+                          <td class="row">
+                            <form action="/admin/pengajuan/proses" method="post">
+                              <input type="hidden" name="nimPengaju" value="<%= pengaju.nim_permohonan_keanggotaan %>">
+                              <input type="hidden" name="statusProses" value="terima">
+                              <button type="submit" class="btn btn-success btn-action mr-1" data-toggle="tooltip" title="Setujui">
+                                <i class="fas fa-check"></i>
+                              </button>
+                            </form>
+                            <form action="/admin/pengajuan/proses" method="post">
+                              <input type="hidden" name="nimPengaju" value="<%= pengaju.nim_permohonan_keanggotaan %>">
+                              <input type="hidden" name="statusProses" value="tolak">
+                              <button type="submit" class="btn btn-danger btn-action" data-toggle="tooltip" title="Tolak">
+                                <i class="fas fa-times"></i>
+                              </button>
+                            </form>
                           </td>
                         </tr>
                         <%  }); %>

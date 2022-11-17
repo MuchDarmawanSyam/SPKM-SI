@@ -24,5 +24,69 @@ module.exports = {
                 }
             );
         })
+    },
+    processPengajuan(req, res){
+        pool.getConnection(function(err, connection) {
+            if (err) throw err;
+
+            nimPengaju = req.body.nimPengaju;
+            statusProses = req.body.statusProses;
+            if (statusProses == "terima"){
+                let sql = "SELECT * FROM `tbl_permohonan_keanggotaan` WHERE `nim_permohonan_keanggotaan` = ?";
+                connection.query(
+                    sql, [nimPengaju], function(error, results){
+                        if (error) throw error;
+    
+                        namaMhs = results[0].nama_permohonan_keanggotaan;
+                        genderMhs = results[0].gender_permohonan_keanggotaan;
+                        emailMhs = results[0].email_permohonan_keanggotaan;
+                        semesterMhs = 1; // Default
+
+                        // kelola data yang diinput untuk tabel akun mahasiswa sesuai kerangka password
+                        // 4 angka random
+                        minimalNumber = 1000;
+                        maksimalNumber = 9999;
+                        randomNumber = Math.floor(Math.random() * (maksimalNumber - minimalNumber) ) + minimalNumber;
+                        // 5 angka terakhir dari nim
+                        lastNim = nimPengaju.slice(8, 13);
+                        // data untuk ditambahkan
+                        usrMhs = nimPengaju;
+                        passMhs = "mhspass"+lastNim+randomNumber;
+
+                        let sql2 = "INSERT INTO `tbl_mahasiswa`(`nim_mahasiswa`, `nama_mahasiswa`, `gender_mahasiswa`, `alamat_mahasiswa`, `no_telp_mahasiswa`, `kelas_mahasiswa`, `id_semester`) VALUES (?, ?, ?, ?, ?, ?, ?)";
+                        connection.query(
+                            sql2, [nimPengaju, namaMhs, genderMhs, emailMhs, '-', '-', semesterMhs], function(error2, results){
+                                if(error2) throw error2;
+                                let sql3 = "INSERT INTO `tbl_akun`(`id_akun`, `username_akun`, `password_akun`, `id_lvl_akun`, `nim_mahasiswa`) VALUES (?, ?, SHA1(?), ?, ?)";
+                                connection.query(
+                                    sql3, ['', usrMhs, passMhs, 1, nimPengaju], function(error3, results){
+                                        if(error3) throw error3;
+                                        let sql4 = "DELETE FROM `tbl_permohonan_keanggotaan` WHERE `nim_permohonan_keanggotaan` = ?";
+                                        connection.query(
+                                            sql4, [nimPengaju], function(error4, results){
+                                                if(error4) throw error4;
+                                                req.flash('color', 'success');
+                                                req.flash('status', 'Data Added');
+                                                req.flash('message', 'Menerima keanggotaan mahasiswa ('+namaMhs+').');
+                                                res.redirect('/admin/pengajuan');
+                                            });
+                                    });
+                            });
+                    });
+            }else if(statusProses == "tolak"){
+                let sql = "DELETE FROM `tbl_permohonan_keanggotaan` WHERE `nim_permohonan_keanggotaan` = ?";
+                connection.query(
+                    sql, [nimPengaju], function(error, results){
+                        if (error) throw error;
+                        
+                        req.flash('color', 'success');
+                        req.flash('status', 'Data Deleted');
+                        req.flash('message', 'Menolak keanggptaan mahasiswa ('+nimPengaju+').');
+                        res.redirect('/admin/pengajuan');
+                    });
+            }else{
+                res.redirect('/admin/pengajuan');
+            }
+        })
     }
 }
