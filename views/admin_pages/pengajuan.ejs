@@ -19,7 +19,14 @@
       <div class="main-content">
         <section class="section">
           <div class="section-header">
-            <h1><%= posisiHlmn[0] %> / <%= posisiHlmn[1] %></h1>
+            <div class="row col-12">
+              <div class="col-12 col-lg-6 col-md-6 mt-2">
+                <h1><%= posisiHlmn[0] %> / <%= posisiHlmn[1] %></h1>
+              </div>
+              <div class="col-12 col-lg-6 col-md-6 mt-2">
+                <%- include('../parts/messages'); %>
+              </div>
+            </div>
           </div>
           <!-- Table Mahasiswa and Quick Draft -->
           <div class="row">

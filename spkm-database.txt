@@ -16,6 +16,7 @@ Tables:
         - nim_mahasiswa (Primary) / VARCHAR / 13
         - nama_mahasiswa / VARCHAR / 40
         - gender_mahasiswa / ENUM / 'L','P'
+        - email_mahasiswa / VARCHAR / 50
         - alamat_mahasiswa / VARCHAR / 60
         - no_telp_mahasiswa / VARCHAR / 13
         - kelas_mahasiswa / VARCHAR / 10

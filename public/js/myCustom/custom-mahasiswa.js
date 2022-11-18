@@ -23,6 +23,7 @@
          $("#detailNamaMhs").val(dataDetail.nama_mahasiswa);
          $("#detailNimMhs").val(dataDetail.nim_mahasiswa);
          $("#detailGenderMhs").val(dataDetail.gender_mahasiswa);
+         $("#detailEmail").val(dataDetail.email_mahasiswa);
          $("#detailAlamatMhs").val(dataDetail.alamat_mahasiswa);
          $("#detailNohpMhs").val(dataDetail.no_telp_mahasiswa);
          $("#detailKelasMhs").val(dataDetail.kelas_mahasiswa);
@@ -133,6 +134,7 @@
       $("#detailNamaMhs").val(dataDetailSearch.nama_mahasiswa);
       $("#detailNimMhs").val(dataDetailSearch.nim_mahasiswa);
       $("#detailGenderMhs").val(dataDetailSearch.gender_mahasiswa);
+      $("#detailEmail").val(dataDetailSearch.email_mahasiswa);
       $("#detailAlamatMhs").val(dataDetailSearch.alamat_mahasiswa);
       $("#detailNohpMhs").val(dataDetailSearch.no_telp_mahasiswa);
       $("#detailKelasMhs").val(dataDetailSearch.kelas_mahasiswa);

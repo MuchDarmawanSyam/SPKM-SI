@@ -19,7 +19,10 @@ module.exports = {
                         posisiHlmn: ['Mahasiswa SI','Data Akun Mahasiswa SI'],
                         userNim:  req.session.nim,
                         userLvl: req.session.statuslvlakun,
-                        dataAkunMhs: results,
+                        dataAkunMhs: results, 
+                        colorFlash: req.flash('color'),
+                        statusFlash: req.flash('status'),
+                        pesanFlash: req.flash('message'),
                     });
                 }
             );

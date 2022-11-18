@@ -49,8 +49,8 @@ module.exports = {
             passMhs = "mhspass"+lastNim+randomNumber;
 
             // Menambahkan Anggota Mahasiswa dan Akunnya Sekaligus
-            let sql = "INSERT INTO `tbl_mahasiswa`(`nim_mahasiswa`, `nama_mahasiswa`, `gender_mahasiswa`, `alamat_mahasiswa`, `no_telp_mahasiswa`, `kelas_mahasiswa`, `id_semester`) VALUES (?, ?, ?, ?, ?, ?, ?)";
-            connection.query(sql, [nimMhs, namaMhs, genderMhs, '-', '-', '-', semesterMhs], function(error, results){
+            let sql = "INSERT INTO `tbl_mahasiswa`(`nim_mahasiswa`, `nama_mahasiswa`, `gender_mahasiswa`, `email_mahasiswa`, `alamat_mahasiswa`, `no_telp_mahasiswa`, `kelas_mahasiswa`, `id_semester`) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+            connection.query(sql, [nimMhs, namaMhs, genderMhs, '-', '-', '-', '-', semesterMhs], function(error, results){
                 if (error) throw error;
                 let sql2 = "INSERT INTO `tbl_akun`(`id_akun`, `username_akun`, `password_akun`, `id_lvl_akun`, `nim_mahasiswa`) VALUES (?, ?, SHA1(?), ?, ?)";
                 connection.query(sql2, ['', usrMhs, passMhs, 1, nimMhs], function(error2, results2){

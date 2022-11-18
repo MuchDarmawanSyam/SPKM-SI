@@ -19,7 +19,10 @@ module.exports = {
                         posisiHlmn: ['SPKM','Ijin Keanggotaan'],
                         userNim:  req.session.nim,
                         userLvl: req.session.statuslvlakun,
-                        dataPengajuan: results,
+                        dataPengajuan: results, 
+                        colorFlash: req.flash('color'),
+                        statusFlash: req.flash('status'),
+                        pesanFlash: req.flash('message'),
                     });
                 }
             );
@@ -53,9 +56,9 @@ module.exports = {
                         usrMhs = nimPengaju;
                         passMhs = "mhspass"+lastNim+randomNumber;
 
-                        let sql2 = "INSERT INTO `tbl_mahasiswa`(`nim_mahasiswa`, `nama_mahasiswa`, `gender_mahasiswa`, `alamat_mahasiswa`, `no_telp_mahasiswa`, `kelas_mahasiswa`, `id_semester`) VALUES (?, ?, ?, ?, ?, ?, ?)";
+                        let sql2 = "INSERT INTO `tbl_mahasiswa`(`nim_mahasiswa`, `nama_mahasiswa`, `gender_mahasiswa`, `email_mahasiswa`, `alamat_mahasiswa`, `no_telp_mahasiswa`, `kelas_mahasiswa`, `id_semester`) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
                         connection.query(
-                            sql2, [nimPengaju, namaMhs, genderMhs, emailMhs, '-', '-', semesterMhs], function(error2, results){
+                            sql2, [nimPengaju, namaMhs, genderMhs, emailMhs, '-', '-', '-', semesterMhs], function(error2, results){
                                 if(error2) throw error2;
                                 let sql3 = "INSERT INTO `tbl_akun`(`id_akun`, `username_akun`, `password_akun`, `id_lvl_akun`, `nim_mahasiswa`) VALUES (?, ?, SHA1(?), ?, ?)";
                                 connection.query(
@@ -67,7 +70,7 @@ module.exports = {
                                                 if(error4) throw error4;
                                                 req.flash('color', 'success');
                                                 req.flash('status', 'Data Added');
-                                                req.flash('message', 'Menerima keanggotaan mahasiswa ('+namaMhs+').');
+                                                req.flash('message', 'Menerima keanggotaan mahasiswa ('+passMhs+' '+emailMhs+').');
                                                 res.redirect('/admin/pengajuan');
                                             });
                                     });
