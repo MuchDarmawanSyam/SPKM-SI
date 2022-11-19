@@ -11,7 +11,7 @@ module.exports = {
         pool.getConnection(function(err, connection) {
             if (err) throw err;
             // Tampilkan Daftar Pengajuan Keanggotaan Mahasiswa
-            let sql = "SELECT * FROM `tbl_permohonan_keanggotaan`";
+            let sql = "SELECT * FROM `tbl_permohonan_keanggotaan` ORDER BY `id_permohonan_keanggotaan` DESC";
             connection.query(
                 sql, function(error, results){
                     if (error) throw error;
