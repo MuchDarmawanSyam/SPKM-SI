@@ -1,5 +1,6 @@
 const config = require('../config/mysql');
 const mysql = require('mysql');
+const dateNow = new Date();
 let pool = mysql.createPool(config);
 
 pool.on('error', (err) => {
@@ -44,6 +45,8 @@ module.exports = {
                         genderMhs = results[0].gender_permohonan_keanggotaan;
                         emailMhs = results[0].email_permohonan_keanggotaan;
                         semesterMhs = 1; // Default
+                        addBy = req.session.nim;
+                        addDate = dateNow.getFullYear()+'-'+dateNow.getMonth()+'-'+dateNow.getDate();
 
                         // kelola data yang diinput untuk tabel akun mahasiswa sesuai kerangka password
                         // 4 angka random
@@ -56,9 +59,9 @@ module.exports = {
                         usrMhs = nimPengaju;
                         passMhs = "mhspass"+lastNim+randomNumber;
 
-                        let sql2 = "INSERT INTO `tbl_mahasiswa`(`nim_mahasiswa`, `nama_mahasiswa`, `gender_mahasiswa`, `email_mahasiswa`, `alamat_mahasiswa`, `no_telp_mahasiswa`, `kelas_mahasiswa`, `id_semester`) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+                        let sql2 = "INSERT INTO `tbl_mahasiswa`(`nim_mahasiswa`, `nama_mahasiswa`, `gender_mahasiswa`, `email_mahasiswa`, `alamat_mahasiswa`, `no_telp_mahasiswa`, `kelas_mahasiswa`, `id_semester`, `yang_menambah_mahasiswa`, `waktu_ditambahkan_mahasiswa`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
                         connection.query(
-                            sql2, [nimPengaju, namaMhs, genderMhs, emailMhs, '-', '-', '-', semesterMhs], function(error2, results){
+                            sql2, [nimPengaju, namaMhs, genderMhs, emailMhs, '-', '-', '-', semesterMhs, addBy, addDate], function(error2, results){
                                 if(error2) throw error2;
                                 let sql3 = "INSERT INTO `tbl_akun`(`id_akun`, `username_akun`, `password_akun`, `id_lvl_akun`, `nim_mahasiswa`) VALUES (?, ?, SHA1(?), ?, ?)";
                                 connection.query(

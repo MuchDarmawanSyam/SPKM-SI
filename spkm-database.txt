@@ -21,6 +21,8 @@ Tables:
         - no_telp_mahasiswa / VARCHAR / 13
         - kelas_mahasiswa / VARCHAR / 10
         - id_semester (Foreign/AI) / INT / 1
+        - yang_menambah_mahasiswa / VARCHAR / 18
+        - waktu_ditambahkan_mahasiswa / DATE / YY - MM - DD
 
     4. tbl_semester;
         - id_semester (Primary/AI) / INT / 1
