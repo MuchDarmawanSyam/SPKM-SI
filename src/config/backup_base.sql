@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 19, 2022 at 11:20 AM
+-- Generation Time: Nov 19, 2022 at 01:09 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -44,9 +44,10 @@ INSERT INTO `tbl_akun` (`id_akun`, `username_akun`, `password_akun`, `id_lvl_aku
 (2, '2022051074042', 'f261c376a2a0437ab74dcb156d352887d9711110', 1, '2022051074042'),
 (3, '2022051074046', '62d8eb9f8f31b9b2e4a3fe179357e12fba6f4ab7', 1, '2022051074046'),
 (4, '2022051074050', '6c736c8a538acbc9c28b0e05d0cc845149bf2400', 1, '2022051074050'),
-(7, '2022051074051', 'ca8d1bf5030e24de6ad1fc0b376e82e4bc9b635d', 1, '2022051074051'),
 (9, '2022051074049', 'e9d69fc187bb55aff0cb99127309c2e780fed39a', 1, '2022051074049'),
-(10, '2022051074000', '546216b421e178dc1ad3a825189b861fdc7b7a8c', 1, '2022051074000');
+(10, '2022051074000', '546216b421e178dc1ad3a825189b861fdc7b7a8c', 1, '2022051074000'),
+(11, '2022051074002', 'ba17ed0c99d132dbebf433d4baeb004456896792', 1, '2022051074002'),
+(14, '2022051074005', '56345630100e3ba9b145a2f97d95966741529cba', 1, '2022051074005');
 
 -- --------------------------------------------------------
 
@@ -82,21 +83,24 @@ CREATE TABLE `tbl_mahasiswa` (
   `alamat_mahasiswa` varchar(60) NOT NULL,
   `no_telp_mahasiswa` varchar(13) NOT NULL,
   `kelas_mahasiswa` varchar(10) NOT NULL,
-  `id_semester` int(1) NOT NULL
+  `id_semester` int(1) NOT NULL,
+  `yang_menambah_mahasiswa` varchar(18) NOT NULL,
+  `waktu_ditambahkan_mahasiswa` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `tbl_mahasiswa`
 --
 
-INSERT INTO `tbl_mahasiswa` (`nim_mahasiswa`, `nama_mahasiswa`, `gender_mahasiswa`, `email_mahasiswa`, `alamat_mahasiswa`, `no_telp_mahasiswa`, `kelas_mahasiswa`, `id_semester`) VALUES
-('2022051074000', 'Pemohon Laki', 'L', 'pemohonLaki@gmail.com', '-', '-', '-', 1),
-('2022051074042', 'Iriansyah Syam', 'L', 'iriansyahsyam@gmail.com', 'Jalan. Tasangkapura No. 36', '082197829187', 'B', 1),
-('2022051074046', 'Salzadila Syam', 'P', 'salzadilasyam@gmail.com', 'Polimak 1 No. 40', '082197001122', 'B', 1),
-('2022051074049', 'Pemohon 2', 'P', 'pemohon2@gmail.com', '', '-', '-', 1),
-('2022051074050', 'Mahasiswa 3', 'L', '', '', '', '', 1),
-('2022051074051', 'Testing 2', 'L', '', '-', '-', '-', 1),
-('admin1', 'Admin1', 'L', '', '', '', '', 1);
+INSERT INTO `tbl_mahasiswa` (`nim_mahasiswa`, `nama_mahasiswa`, `gender_mahasiswa`, `email_mahasiswa`, `alamat_mahasiswa`, `no_telp_mahasiswa`, `kelas_mahasiswa`, `id_semester`, `yang_menambah_mahasiswa`, `waktu_ditambahkan_mahasiswa`) VALUES
+('2022051074000', 'Pemohon Laki', 'L', 'pemohonLaki@gmail.com', '-', '-', '-', 1, 'admin1', '2022-11-19'),
+('2022051074002', 'Adriano', 'L', '-', '-', '-', '-', 6, 'admin1', '2022-11-19'),
+('2022051074005', 'Andito', 'L', '-', '-', '-', '-', 2, 'admin1', '2022-10-19'),
+('2022051074042', 'Iriansyah Syam', 'L', 'iriansyahsyam@gmail.com', 'Jalan. Tasangkapura No. 36', '082197829187', 'B', 1, 'admin1', '2022-11-19'),
+('2022051074046', 'Salzadila Syam', 'P', 'salzadilasyam@gmail.com', 'Polimak 1 No. 40', '082197001122', 'B', 1, 'admin1', '2022-11-19'),
+('2022051074049', 'Pemohon 2', 'P', 'pemohon2@gmail.com', '', '-', '-', 1, 'admin1', '2022-11-19'),
+('2022051074050', 'Mahasiswa 3', 'L', '', '', '', '', 1, 'admin1', '2022-11-19'),
+('admin1', 'Admin1', 'L', '', '', '', '', 1, '', '2022-11-19');
 
 -- --------------------------------------------------------
 
@@ -121,8 +125,7 @@ INSERT INTO `tbl_permohonan_keanggotaan` (`id_permohonan_keanggotaan`, `nama_per
 (1, 'Much Darmawan Iriansyah Syam', '2022051074044', 'mchdarmawan@gmail.com', 'L', 'Tolong terima saya sebagai anggota mahasiswa SI'),
 (2, 'Putri Salsadila Syam', '202205107400', 'putrisyam@gmail.com', 'P', 'Tolong terima saya sebagai anggota mahasiswa SI'),
 (6, 'Pemohon Perempuan', '202205107401', 'pemohonPerempuan@gmail.com', 'P', 'Test Pesan Peromohonan'),
-(7, 'Pemohon Laki2', '2022051074002', 'pemohonLaki2@gmail.com', 'L', 'Test Pesan'),
-(8, 'Pemohon Perempuan3', '202205107403', 'pemohonPerempuan3@gmail.com', 'P', 'Test Pesan Peromohonan');
+(7, 'Pemohon Laki2', '2022051074002', 'pemohonLaki2@gmail.com', 'L', 'Test Pesan');
 
 -- --------------------------------------------------------
 
@@ -194,7 +197,7 @@ ALTER TABLE `tbl_semester`
 -- AUTO_INCREMENT for table `tbl_akun`
 --
 ALTER TABLE `tbl_akun`
-  MODIFY `id_akun` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_akun` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `tbl_lvl_akun`
