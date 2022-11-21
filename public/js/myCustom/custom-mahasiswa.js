@@ -84,6 +84,13 @@
           }
         ]
     });
+
+    // Fungsi Salin text NIM
+    $(".btnCopyNIM").click(function(e){
+      let nimCopy = $('#detailNimMhs').select().val();
+      document.execCommand('copy');
+      e.preventDefault();
+    });
  });
  
  // Isi Data Mahasiswa pada Form Edit Mahasiswa
@@ -145,4 +152,3 @@
   $("html,body").animate({ scrollTop: $('#target-detail').offset().top}, 1000);
   e.preventDefault();
  });
- 

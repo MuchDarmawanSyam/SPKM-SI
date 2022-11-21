@@ -72,7 +72,10 @@
                             <%= pengaju.gender_permohonan_keanggotaan == "L" ? "Laki-Laki" : "Perempuan" %> 
                           </td>
                           <td>
-                            <%= pengaju.pesan_permohonan_keanggotaan.slice(0, 10)+"..." %>
+                            <%= pengaju.pesan_permohonan_keanggotaan.slice(0, 10) %>...
+                            <button class="btn btn-sm btn-link" data-toggle="tooltip" title="<%= pengaju.pesan_permohonan_keanggotaan %>">
+                              <i class="fas fa-comment"></i>
+                            </button>
                           </td>
                           <td class="row">
                             <form action="/admin/pengajuan/proses" method="post">

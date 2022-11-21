@@ -74,6 +74,12 @@
     e.preventDefault();
   });
 
+  // Fungsi Salin text NIM
+  $(".btnCopyNIM").click(function(e){
+    let nimCopy = $('#detailNimMhs').select().val();
+    document.execCommand('copy');
+    e.preventDefault();
+  });
  });
 
  // Dapatkan Data Mahasiswa via NIM Search
