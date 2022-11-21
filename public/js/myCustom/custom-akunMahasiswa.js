@@ -25,11 +25,55 @@
         $("#detailGenderMhs").val(dataDetail.gender_mahasiswa);
         $("#detailUsername").val(dataDetail.username_akun);
         $("#detailPassword").val(dataDetail.password_akun);
+        $("#btnModal-reset-akun").data('nimReset', {nimResetAkun: nimDetail});
       }
     });
 
     $("html,body").animate({ scrollTop: $('#target-detail').offset().top}, 1000);
   });
+
+  // Modal Reset Akun Mahasiswa
+  $("#btnModal-reset-akun").fireModal({
+    title: 'Reset Akun Mahasiswa',
+    body: $("#modal-reset-akun-mahasiswa"),
+    footerClass: 'bg-whitesmoke',
+    autoFocus: false,
+    buttons: [
+      {
+          text: 'Reset Akun',
+          submit: false,
+          class: 'btn btn-danger btn-shadow btnResetPass',
+          handler: function(modal) {
+          }
+      }
+    ]
+  });
+
+
+  // Fungsi Reset Password dengan Ajax
+  $('.btnResetPass').click(function(e) {
+    var nimReset = $('#nim_reset_akun').serialize();
+    $.ajax({
+      url: "/admin/akun-mahasiswa/reset",
+      method: "POST",
+      data: nimReset,
+      dataType: "JSON",
+      success: function(dataResetResult){
+        $('#hasilReset').html(
+          'Password Baru:<div class="form-group"><div class="alert alert-success alert-dismissible show fade ms-3"><div class="alert-body"><button class="close" data-dismiss="alert"><span>&times;</span></button>'+dataResetResult.passMhs+'&nbsp;</div></div></div>'
+        );
+        $('#modal-reset-akun-mahasiswa').hide();
+      },
+      error: function(dataResetResult){
+        $('#hasilReset').html(
+          '<div class="form-group"><div class="alert alert-danger alert-dismissible show fade ms-3"><div class="alert-body"><button class="close" data-dismiss="alert"><span>&times;</span></button>Gagal Mereset Password NIM: '+dataResetResult.nimMhs+'&nbsp;</div></div></div>'
+        );
+        $('#modal-reset-akun-mahasiswa').hide();
+      }
+    });
+    e.preventDefault();
+  });
+
  });
 
  // Dapatkan Data Mahasiswa via NIM Search
@@ -52,4 +96,10 @@
   $("html,body").animate({ scrollTop: $('#target-detail').offset().top}, 1000);
   e.preventDefault();
  });
+
+  // Dapatkan Data Akun Reset
+  $(document).on('click', '#btnModal-reset-akun', function(){
+    var nim = $(this).data('nimReset').nimResetAkun;
+    $('#nim_reset_akun').val(nim);
+  });
  

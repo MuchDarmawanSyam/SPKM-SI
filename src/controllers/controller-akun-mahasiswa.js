@@ -39,5 +39,26 @@ module.exports = {
                 res.json(results[0]);
             });
         })
+    },
+    resetPassAkunMhs(req, res){ //API akun Mahasiswa
+        pool.getConnection(function(err, connection){
+            if(err) throw err;
+            nimMhs = req.body.nim_reset_akun;
+            // 4 angka random
+            minimalNumber = 1000;
+            maksimalNumber = 9999;
+            randomNumber = Math.floor(Math.random() * (maksimalNumber - minimalNumber) ) + minimalNumber;
+            // 5 angka terakhir dari nim
+            lastNim = nimMhs.slice(8, 13);
+            // data untuk ditambahkan
+            passMhs = "mhspass"+lastNim+randomNumber;
+            let sql = "UPDATE `tbl_akun` SET `password_akun`=SHA1(?) WHERE `nim_mahasiswa`=?";
+            connection.query(
+                sql, [passMhs, nimMhs], function(error, results){
+                    if(error) throw error;
+                    passResult = {nimMhs:nimMhs,passMhs:passMhs};
+                    res.json(passResult);
+                })
+        })
     }
 }

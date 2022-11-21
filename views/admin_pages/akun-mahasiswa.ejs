@@ -148,13 +148,14 @@
                                   <input type="text" id="detailPassword" value="" class="form-control" readonly>
                                 </div>
                               </div>
+                              <!-- Aksi Detail Akun -->
                               <div class="form-group">
                                 <label for="">Aksi Detail:</label>
                                 <div class="input-group">
                                   <button type="reset" class="btn btn-warning btn-action" data-toggle="tooltip" title="Kosongkan Detail">
                                     <i class="fas fa-redo-alt"></i>
                                   </button>
-                                  <button type="reset" class="btn btn-danger btn-action ml-2" data-toggle="tooltip" title="Reset Password">
+                                  <button id="btnModal-reset-akun" class="btn btn-danger btn-action ml-2" data-toggle="tooltip" title="Reset Password" data-nimReset="">
                                     <i class="fas fa-sync-alt"></i>
                                   </button>
                                 </div>
@@ -165,6 +166,7 @@
                         <!-- END Detail Profil -->
                       </div>
                     </form>
+                  <input type="hidden" id="nim_reset_akun" name="nim_reset_akun">
                   </div>
                   <!-- END Detail Akun Anggota Mahasiswa -->
                   <div class="card-footer">
@@ -213,6 +215,9 @@
     </div>
   </div>
 
+  <!-- Modals -->
+  <%- include('../parts/modals/modal-akun-mahasiswa'); %>
+  <!-- End Modals -->
   <!-- Script -->
   <%- include('../parts/script'); %>
   <script src="/js/myCustom/custom-akunMahasiswa.js"></script>

@@ -70,18 +70,18 @@
 
      // Modal Hapus Mahasiswa
     $(".modal-delete-mahasiswa").fireModal({
-        title: 'Hapus Anggita Anggota',
+        title: 'Hapus Data Anggota',
         body: $("#modal-delete-mahasiswa"),
         footerClass: 'bg-whitesmoke',
         autoFocus: false,
         buttons: [
-        {
-            text: 'Hapus Anggota',
-            submit: true,
-            class: 'btn btn-primary btn-shadow',
-            handler: function(modal) {
-            }
-        }
+          {
+              text: 'Hapus Anggota',
+              submit: true,
+              class: 'btn btn-primary btn-shadow',
+              handler: function(modal) {
+              }
+          }
         ]
     });
  });
