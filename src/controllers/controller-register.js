@@ -53,5 +53,17 @@ module.exports = {
             res.redirect('/login');
             res.end();
         }
+    },
+    validateRegister(req, res){ // API Pengajuan
+        let nimCheck = req.body.id;
+        pool.getConnection(function(err, connection){
+            if(err) throw err;
+            let sql = "SELECT `nim_permohonan_keanggotaan` FROM `tbl_permohonan_keanggotaan` WHERE `nim_permohonan_keanggotaan`=?";
+            connection.query(
+                sql, [nimCheck], function(error, results){
+                    if(error) throw error;
+                    res.json(results[0]);
+                });
+        })
     }
 };

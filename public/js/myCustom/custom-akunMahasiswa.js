@@ -62,13 +62,11 @@
         $('#hasilReset').html(
           'Password Baru:<div class="form-group"><div class="alert alert-success alert-dismissible show fade ms-3"><div class="alert-body"><button class="close" data-dismiss="alert"><span>&times;</span></button>'+dataResetResult.passMhs+'&nbsp;</div></div></div>'
         );
-        $('#modal-reset-akun-mahasiswa').hide();
       },
       error: function(dataResetResult){
         $('#hasilReset').html(
           '<div class="form-group"><div class="alert alert-danger alert-dismissible show fade ms-3"><div class="alert-body"><button class="close" data-dismiss="alert"><span>&times;</span></button>Gagal Mereset Password NIM: '+dataResetResult.nimMhs+'&nbsp;</div></div></div>'
         );
-        $('#modal-reset-akun-mahasiswa').hide();
       }
     });
     e.preventDefault();

@@ -11,6 +11,7 @@ const verifyUser = require('../config/middleware');
 router.get('/', verifyUser.isLogout, registerController.formRegister);
 // Rute 'http://localhost:3030/register/save' digunakan untuk simpan data yang diinput user
 router.post('/save', verifyUser.isLogout, registerController.saveRegister);
+router.post('/validateRegister', verifyUser.isLogout, registerController.validateRegister);
 
 // Export agar dibaca oleh Express
 module.exports = router;
