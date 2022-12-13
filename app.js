@@ -18,6 +18,8 @@ const mhsRoutes = require('./src/routes/router-mahasiswa');
 const akunMhsRoutes = require('./src/routes/router-akun-mahasiswa');
 // Permohonan Keanggotaan Routes
 const  permohonanRoutes = require('./src/routes/router-permohonan');
+// Pengurus Routes
+const pengurusRoutes = require('./src/routes/router-pengurus');
 // ---------------- END  ----------------
 
 
@@ -60,6 +62,8 @@ app.use('/admin/mahasiswa', mhsRoutes);
 app.use('/admin/akun-mahasiswa', akunMhsRoutes);
 // Permohonan Routes
 app.use('/admin/pengajuan', permohonanRoutes);
+// Pengurus Routes
+app.use('/admin/pengurus', pengurusRoutes);
 // Index Routes
 app.use('/', appRoutes);
 // ---------------- END ----------------

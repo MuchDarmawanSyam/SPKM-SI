@@ -1,6 +1,5 @@
 // Middleware Custom.
 // File ini berfungsi sebagai middleware yang akan memproteksi pemanggilan controller dari router sebelum dijalankan.
-// Buat middleware pengecek login sebagai admin atau pengurus atau mahasiswa agar mahasiswa tidak bisa mengakses halaman admin
 
 module.exports = {
     isLogin(req, res, next){

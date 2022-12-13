@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Header -->
+<%- include('../parts/header'); %>
+<!-- End Header -->
+<body>
+  <div id="app">
+    <div class="main-wrapper main-wrapper-1">
+      <div class="navbar-bg"></div>
+      <!-- Navbar -->
+        <%- include('../parts/navbar'); %>
+      <!-- End Navbar -->
+      <div class="main-sidebar sidebar-style-2">
+      <!-- Sidebar -->
+        <%- include('../parts/sidebar'); %>
+      <!-- End Sidebar -->
+      </div>
+      <!-- Main Content -->
+      <div class="main-content">
+        <section class="section">
+          <div class="section-header">
+            <div class="row col-12">
+              <div class="col-12 col-lg-6 col-md-6 mt-2">
+                <h1><%= posisiHlmn[0] %> / <%= posisiHlmn[1] %></h1>
+              </div>
+              <div class="col-12 col-lg-6 col-md-6 mt-2">
+                <%- include('../parts/messages'); %>
+              </div>
+            </div>
+          </div>
+          <!-- Table Pengurus & Detal Pengurus -->
+          <div class="row">
+            <!-- Table Pengurus -->
+            <div class="col-lg-12 col-md-12 col-12 col-sm-12">
+              <div class="card">
+                <div class="card-header">
+                  <h4>Data Mahasiswa (Pengurus)</h4>
+                  <div class="card-header-action">
+                    <a href="#" class="btn btn-success modal-tambah-pengurus" data-toggle="tooltip" title="Tambah Pengurus">
+                      <i class="fas fa-edit"></i>
+                    </a>
+                  </div>
+                </div>
+                <div class="card-body p-0">
+                  <div class="table-responsive">
+                    <table id="dataTableMhs"class="table table-striped mb-0">
+                      <thead>
+                        <tr>
+                          <th>No</th>
+                          <th>Profil</th>
+                          <th>NIM</th>
+                          <th>Nama Pengurus</th>
+                          <th>Gender</th>
+                          <th>Semester</th>
+                          <th>Aksi</th>
+                        </tr>
+                      </thead>
+                      <tbody>                         
+                        <% let i = 1; dataPengurus.forEach(function(Pengurus){ %>
+                        <tr>
+                          <td>
+                            <%= i++; %>
+                          </td>
+                          <td>
+                            <img src="/img/profil/Mahasiswa/mahasiswa-default.jpg" alt="avatar <%= Pengurus.nama_mahasiswa %>" width="30" class="rounded-circle mr-1 font-weight-600">
+                          </td>
+                          <td>
+                            <%= Pengurus.nim_mahasiswa %>
+                            <div class="table-links">
+                              <a href="#" class="btn-detail" data-detail="<%= Pengurus.nim_mahasiswa %>">Detail</a>
+                              <div class="bullet"></div>
+                              <a href="#" class="">Mahasiswa Aktif</a>
+                            </div>
+                          </td>
+                          <td>
+                            <%= Pengurus.nama_pengurus %>
+                          </td>
+                          <td>
+                            <%= Pengurus.gender_pengurus == "L" ? "Laki-Laki" : "Perempuan" %> 
+                          </td>
+                          <td>
+                            <%= "Semester "+Pengurus.id_semester %>
+                          </td>
+                          <td class="row">
+                            <form action="#modal">
+                              <button type="submit" class="btn btn-danger btn-action modal-delete-pengurus" data-toggle="tooltip" title="Delete" data-nim="<%= Pengurus.nim_mahasiswa %>"><i class="fas fa-trash"></i></button>
+                            </form>
+                          </td>
+                        </tr>
+                        <%  }); %>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- End Table Pengurus -->
+          </div>
+          <div class="row">
+            <!-- Detail Pengurus -->
+            <div class="col-12 col-md-6 col-lg-12">
+              <div class="card card-dark" id="target-detail">
+                <div class="card-header">
+                  <h4>Detail Pengurus Mahasiswa SI</h4>
+                  <form action="#" method="post" class="card-header-form mr-2">
+                    <div class="input-group">
+                      <input type="text" id="searchMhsbyNim" name="search" class="form-control" placeholder="Dapatkan data dari NIM">
+                      <div class="input-group-btn">
+                        <button id="btnSearchMhsbyNim" class="btn btn-primary btn-icon"><i class="fas fa-search"></i></button>
+                      </div>
+                    </div>
+                  </form>
+                  <div class="card-header-action">
+                    <a data-collapse="#mycard-collapse" class="btn btn-icon btn-info" href="#"><i class="fas fa-minus"></i></a>
+                  </div>
+                </div>
+                <div class="collapse show" id="mycard-collapse">
+                  <!-- Detail Anggota Pengurus -->
+                  <div class="card-body">
+                    <form action="#">
+                      <div class="row">
+                        <!-- Detail Nama dan Info Lain -->
+                        <div class="col-12 col-md-6 col-lg-6">
+                          <div class="card">
+                            <div class="card-body">
+                              <div class="form-group">
+                                <label>Nama Lengkap Anggota:</label>
+                                <div class="input-group">
+                                  <input type="text" id="detailNamaMhs" value="" class="form-control" readonly>
+                                </div>
+                              </div>
+                              <div class="form-group">
+                                <label>NIM Anggota:</label>
+                                <div class="input-group">
+                                  <input type="text" id="detailNimMhs" value="" class="form-control" readonly>
+                                </div>
+                              </div>
+                              <div class="form-group">
+                                <label>Jenis Kelamin Anggota:</label>
+                                <div class="input-group">
+                                  <input type="text" id="detailGenderMhs" value="" class="form-control" readonly>
+                                </div>
+                              </div>
+                              <div class="form-group">
+                                <label>Email Anggota:</label>
+                                <div class="input-group">
+                                  <input type="text" id="detailEmail" value="" class="form-control" readonly>
+                                </div>
+                              </div>
+                              <div class="form-group">
+                                <label>Alamat Anggota:</label>
+                                <div class="input-group">
+                                  <input type="text" id="detailAlamatMhs" value="" class="form-control" readonly>
+                                </div>
+                              </div>
+                              <div class="form-group">
+                                <label>No. Handphone Anggota:</label>
+                                <div class="input-group">
+                                  <input type="text" id="detailNohpMhs" value="" class="form-control" readonly>
+                                </div>
+                              </div>
+                              <div class="form-group">
+                                <label>Kelas Anggota:</label>
+                                <div class="input-group">
+                                  <input type="text" id="detailKelasMhs" value="" class="form-control" readonly>
+                                </div>
+                              </div>
+                              <div class="form-group">
+                                <label>Semester Anggota:</label>
+                                <div class="input-group">
+                                  <input type="text" id="detailSemesterMhs" value="" class="form-control" readonly>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- END Detail Nama dan Info Lain -->
+                        <!-- Detail Profil -->
+                        <div class="col-12 col-md-6 col-lg-6">
+                          <div class="card">
+                            <div class="card-body">
+                              <div class="form-group">
+                                <label>Profil Anggota:</label>
+                                <div class="input-group">
+                                  <img src="/img/profil/Mahasiswa/mahasiswa-default.jpg" alt="Profil Mahasiswa" width="170px" height="150px">
+                                </div>
+                              </div>
+                              <div class="form-group">
+                                <label for="">Aksi Detail:</label>
+                                <div class="input-group">
+                                  <button type="reset" class="btn btn-warning btn-action" data-toggle="tooltip" title="Kosongkan Detail">
+                                    <i class="fas fa-redo-alt"></i>
+                                  </button>
+                                  <button class="btn btn-secondary btn-action ml-2 btnCopyNIM" data-toggle="tooltip" title="Salin NIM" onclick="copyNIM();">
+                                    <i class="fas fa-clipboard"></i>
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- END Detail Profil -->
+                      </div>
+                    </form>
+                  </div>
+                  <!-- END Detail Anggota Mahasiswa -->
+                  <div class="card-footer">
+                    Card Footer
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- End Detail Mahasiswa -->
+          </div>
+          <div class="row">
+            <!-- Quick Draft -->
+            <div class="col-lg-6 col-md-12 col-12 col-sm-12">
+              <form method="post" class="needs-validation" novalidate="">
+                <div class="card">
+                  <div class="card-header">
+                    <h4>Quick Draft</h4>
+                  </div>
+                  <div class="card-body pb-0">
+                    <div class="form-group">
+                      <label>Title</label>
+                      <input type="text" name="title" class="form-control" required>
+                      <div class="invalid-feedback">
+                        Please fill in the title
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label>Content</label>
+                      <textarea class="summernote-simple"></textarea>
+                    </div>
+                  </div>
+                  <div class="card-footer pt-0">
+                    <button class="btn btn-primary">Save Draft</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <!-- End Quick Draft -->
+          </div>
+          <!-- End Tabel Mahasiswa & Detail Mahasiswa -->
+        </section>
+      </div>
+      <!-- Footer -->
+        <%- include('../parts/footer'); %>
+      <!-- End Footer -->
+    </div>
+  </div>
+
+  <!-- Modals -->
+  <%- include('../parts/modals/modal-pengurus'); %>
+  <!-- End Modals -->
+ <!-- Script -->
+  <%- include('../parts/script'); %>
+  <script src="/js/myCustom/custom-pengurus.js"></script>
+ <!-- End Script -->
+</body>
+</html>

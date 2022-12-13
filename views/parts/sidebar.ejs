@@ -14,15 +14,23 @@
       <li class="dropdown <%= posisiHlmn[0] == 'Mahasiswa SI' ? 'active' : '' %>">
         <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i> <span>Mahasiswa SI</span></a>
         <ul class="dropdown-menu">
-          <li class="<%= posisiHlmn[1] == 'Data Mahasiswa SI' ? 'active' : '' %>"><a class="nav-link" href="/Admin/Mahasiswa">Data Anggota Mahasiswa</a></li>
-          <li class="<%= posisiHlmn[1] == 'Data Akun Mahasiswa SI' ? 'active' : '' %>"><a class="nav-link" href="/Admin/Akun-Mahasiswa">Data Akun Mahasiswa</a></li>
+          <li class="<%= posisiHlmn[1] == 'Data Mahasiswa SI' ? 'active' : '' %>">
+            <a class="nav-link" href="/Admin/Mahasiswa">Data Anggota Mahasiswa</a>
+          </li>
+          <li class="<%= posisiHlmn[1] == 'Data Akun Mahasiswa SI' ? 'active' : '' %>">
+            <a class="nav-link" href="/Admin/Akun-Mahasiswa">Data Akun Mahasiswa</a>
+          </li>
         </ul>
       </li>
-      <li class="dropdown">
+      <li class="dropdown <%= posisiHlmn[0] == 'Pengurus' ? 'active' : '' %>">
         <a href="#" class="nav-link has-dropdown"><i class="fas fa-th"></i> <span>Pengurus Kelas</span></a>
         <ul class="dropdown-menu">
-          <li><a class="nav-link" href="#bootstrap-alert.html">Data Pengurus Kelas</a></li>
-          <li><a class="nav-link" href="#bootstrap-badge.html">Data Akun Pengurus Kelas</a></li>
+          <li class="<%= posisiHlmn[1] == 'Data Pengurus SI' ? 'active' : '' %>">
+            <a class="nav-link" href="/Admin/Pengurus">Data Pengurus Kelas</a>
+          </li>
+          <li class="">
+            <a class="nav-link" href="#">Data Akun Pengurus Kelas</a>
+          </li>
         </ul>
       </li>
       <li class="<%= posisiHlmn[1] == 'Ijin Keanggotaan' ? 'active' : '' %>"><a class="nav-link" href="/admin/pengajuan"><i class="far fa-square"></i> <span>Ijin Keanggotaan</span></a></li>

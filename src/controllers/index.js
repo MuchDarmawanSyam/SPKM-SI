@@ -7,6 +7,8 @@ const mahasiswa = require('./controller-mahasiswa');
 const akunMahasiswa = require('./controller-akun-mahasiswa');
 // Permohonan
 const permohonan = require('./controller-permohonan');
+// Pengurus
+const pengurus = require('./controller-pengurus');
 
 module.exports = {
     login,
@@ -14,5 +16,6 @@ module.exports = {
     register,
     mahasiswa,
     akunMahasiswa,
-    permohonan
+    permohonan,
+    pengurus
 };

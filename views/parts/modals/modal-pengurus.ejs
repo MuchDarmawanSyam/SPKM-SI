@@ -1,0 +1,65 @@
+<!-- Form Tambah Mahasiswa -->
+<form action="/admin/pengurus/save" method="post" class="modal-part" id="modal-add-pengurus">
+    <p>Menambah pengurus hanya bisa dilakukan kepada Mahasiswa yang telah menjadi anggota terdaftar SPKM.</p>
+    <div class="form-group">
+      <label>Tahun Angkatan</label>
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text">
+            <i class="fas fa-file"></i>
+          </div>
+        </div>
+        <select name="semester_mahasiswa" class="form-control">          
+            <% 
+                let myDate = new Date();
+                let dataAngkatan = [myDate.getFullYear()];
+                let rangeYears = 7;
+                let countZero = 0;
+                for(let i = 1; i <= rangeYears; i++){
+            %>
+                    <option value="<%= dataAngkatan[countZero] %>">Tahun <%= dataAngkatan[countZero] %></option>
+            <%  
+                    dataAngkatan.push(parseInt(dataAngkatan[countZero])-1);
+                    countZero++;
+                }
+            %>
+        </select>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <h4 id="titleMhsAngkatan"></h4>
+      </div>
+      <div class="card-body p-0">
+        <div class="table-responsive">
+          <table id="dataTableMhsAngkatan"class="table table-striped mb-0">
+            <thead>
+              <tr>
+                <th>No</th>
+                <th>NIM Anggota</th>
+                <th>Nama Anggota</th>
+                <th>Gender Anggota</th>
+                <th>Semester Anggota</th>
+              </tr>
+            </thead>
+            <tbody id="tblMhsAngkatan">
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="form-group mb-0">
+      <div class="custom-control custom-checkbox">  
+      </div>
+    </div>
+  </form>
+
+
+  <form action="/admin/pengurus/delete" method="post" class="modal-part" id="modal-delete-pengurus">
+    <p>Menghapus data pengurus tidak akan mempengaruhi data Mahasiswa. tapi pengurus tersebut akan kehilangan hak akses.</p>
+    <input type="hidden" class="nim_delete_pengurus" name="nim_delete_pengurus">
+    <div class="form-group mb-0">
+      <div class="custom-control">
+      </div>
+    </div>
+  </form>

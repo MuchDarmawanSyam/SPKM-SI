@@ -20,9 +20,9 @@ Tables:
         - alamat_mahasiswa / VARCHAR / 60
         - no_telp_mahasiswa / VARCHAR / 13
         - kelas_mahasiswa / VARCHAR / 10
-        - id_semester (Foreign/AI) / INT / 1
+        - id_semester (Foreign => tbl_mahasiswa) / INT / 1
         - yang_menambah_mahasiswa / VARCHAR / 18
-        - waktu_ditambahkan_mahasiswa / DATE / YY - MM - DD
+        - waktu_ditambahkan_mahasiswa / DATE (NULL) / YY - MM - DD
 
     4. tbl_semester;
         - id_semester (Primary/AI) / INT / 1
@@ -35,3 +35,14 @@ Tables:
         - email_permohonan_keanggotaan / VARCHAR / 50
         - gender_permohonan_keanggotaan / ENUM / 'L','P'
         - pesan_permohonan_keanggotaan / VARCHAR / 100
+    
+    6. tbl_pengurus:
+        - id_pengurus (Primary/AI) / INT / 11
+        - nama_pengurus / VARCHAR / 40
+        - gender_pengurus / ENUM / 'L','P'
+        - kelas_pengurus / VARCHAR / 10
+        - jabatan_pengurus / VARCHAR / 15
+        - id_semester (Foreign => tbl_mahasiswa) / INT / 1
+        - yang_menambah_pengurus / VARCHAR / 18
+        - waktu_ditambahkan_pengurus / DATE (NULL) / YY - MM - DD
+        - nim_mahasiswa (Foreign => tbl_mahasiswa) / VARCHAR / 13
